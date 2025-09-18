@@ -1,0 +1,20 @@
+---
+/* src/components/ui/NavLink.astro
+  Props:
+    - href: string
+    - active?: boolean
+*/
+const { href, active = false, ...rest } = Astro.props;
+
+const base =
+  "rounded-[var(--radius-button)] px-[var(--spacing-s)] py-[var(--spacing-xs)] " +
+  "text-[var(--font-size-body-2)] leading-[var(--line-height-body-2)] " +
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-blue-50)]";
+
+const color = active
+  ? "text-[var(--color-brand-swiss)]"
+  : "text-[var(--color-neutral-650)] hover:text-[var(--color-brand-swiss)]";
+---
+<a href={href} class={`${base} ${color}`} {...rest}>
+  <slot />
+</a>

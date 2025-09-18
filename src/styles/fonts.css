@@ -1,0 +1,76 @@
+/* src/styles/fonts.css */
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-Light-07.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-LightOblique-08.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-Book-01.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-BookOblique-02.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-Medium-09.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-MediumOblique-10.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-Heavy-05.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-HeavyOblique-06.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Opcionales extra si quieres “Black” además de “Heavy”: */
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-Black-03.ttf") format("truetype");
+  font-weight: 950; /* o 900 si quieres unificar */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../../public/fonts/Avenir-BlackOblique-04.ttf") format("truetype");
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}

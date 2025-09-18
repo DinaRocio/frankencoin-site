@@ -1,0 +1,167 @@
+/* typography.css (importado en global.css) */
+@layer components {
+  /* ========== DISPLAY & TITLES ========== */
+  .ty-display {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-display);
+    line-height: var(--line-height-display);
+    font-weight: 900;
+  }
+
+  .ty-display-mobile {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-display-mobile);
+    line-height: var(--line-height-display-mobile);
+    font-weight: 900;
+  }
+
+  .ty-large-title {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large-title);
+    font-weight: 800;
+  }
+
+  .ty-large-title-mobile {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large-title-mobile);
+    line-height: var(--line-height-large-title-mobile);
+    font-weight: 800;
+  }
+
+  .ty-title-1 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-title-1);
+    line-height: var(--line-height-title-1);
+    font-weight: 700;
+  }
+
+  .ty-title-1-mobile {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-title-1-mobile);
+    line-height: var(--line-height-title-1-mobile);
+    font-weight: 700;
+  }
+
+  .ty-title-2 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-title-2);
+    font-weight: 600;
+  }
+
+  .ty-title-3 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-title-3);
+    font-weight: 600;
+  }
+
+  .ty-subtitle {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subtitle);
+    line-height: var(--line-height-subtitle);
+    font-weight: 500;
+  }
+
+  /* ========== BODY TEXT ========== */
+  .ty-body-1 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-1);
+    line-height: var(--line-height-body-1);
+    font-weight: 400;
+  }
+
+  .ty-body-1-mobile {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-1-mobile);
+    line-height: var(--line-height-body-1-mobile);
+    font-weight: 400;
+  }
+
+  .ty-body-2 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-2);
+    line-height: var(--line-height-body-2);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .ty-body-3 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-3);
+    line-height: var(--line-height-body-3);
+    font-weight: 400;
+  }
+
+  /* ========== SMALL TEXT ========== */
+  .ty-small {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm-stronger);
+    font-weight: 400;
+  }
+
+  .ty-xs {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+  }
+
+  .ty-2xs {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-2xs);
+    font-weight: 400;
+  }
+
+  /* ========== WEIGHT MODIFIERS ========== */
+  .ty-light {
+    font-weight: 300;
+  }
+  .ty-regular {
+    font-weight: 400;
+  }
+  .ty-medium {
+    font-weight: 500;
+  }
+  .ty-semibold {
+    font-weight: 600;
+  }
+  .ty-bold {
+    font-weight: 700;
+  }
+  .ty-extrabold {
+    font-weight: 800;
+  }
+  .ty-black {
+    font-weight: 900;
+  }
+
+  /* ========== COLOR MODIFIERS ========== */
+  .ty-primary {
+    color: var(--color-brand-deep-blue);
+  }
+  .ty-secondary {
+    color: var(--color-brand-titan-gray);
+  }
+  .ty-muted {
+    color: var(--color-neutral-500);
+  }
+  .ty-white {
+    color: var(--color-white);
+  }
+  .ty-brand {
+    color: var(--color-brand-swiss);
+  }
+
+  /* ========== LEGACY CLASSES (mantener compatibilidad) ========== */
+  .ty-title {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-title-1);
+    line-height: var(--line-height-title-1);
+    font-weight: 900;
+  }
+
+  .ty-paragraph {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-2);
+    line-height: var(--line-height-body-2);
+    font-weight: 400;
+  }
+}

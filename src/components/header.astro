@@ -1,0 +1,70 @@
+---
+import nav from "../content/shared/nav.json";
+import Button from "./Button/Button.astro";
+import NavLink from "./Button/NavLink.astro";
+const { brand, links, cta } = nav;
+---
+<header class="sticky top-0 z-40 bg-[var(--color-white)] border-b border-[var(--color-neutral-200)]">
+  <div class="w-full flex items-center justify-between h-16 px-[var(--spacing-l)]">
+    <!-- Left: Brand -->
+    <div class="nav-left">
+      <a href={nav.brand.href} aria-current="page" class="inline-flex items-center gap-[var(--spacing-s)]">
+        <img
+          src="/src/assets/images/Frankencoin-Logo-Compressify.io.webp"
+          alt={nav.brand.name}
+          class="h-8 w-auto"
+          loading="lazy"
+        />
+        <span class="sr-only">{nav.brand.name}</span>
+      </a>
+    </div>
+
+    <!-- Center: Nav (desktop) -->
+    <nav role="navigation" aria-label="Main" class="hidden md:flex items-center gap-[var(--spacing-l)]">
+      {nav.links.map((l) => (
+       
+         <NavLink href={l.href}>{l.label}</NavLink>
+      ))}
+    </nav>
+   
+    <!-- Right: CTA + Mobile Menu -->
+    <div class="flex items-center gap-[var(--spacing-l)]">
+      <!-- CTA (desktop) -->
+      <Button href={nav.cta.href} variant="primary" rounded="full" size="md">
+        Launch App
+      </Button>
+
+      <!-- Mobile menu (details/summary accesible) -->
+      <details class="md:hidden relative">
+        <summary
+          class="list-none inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-button-6)] border border-[var(--color-gray-30)] text-[var(--color-neutral-650)] hover:text-[var(--color-brand-deep-blue)] hover:bg-[var(--color-neutral-100)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-blue-50)]"
+          aria-label="Open menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </summary>
+        <div
+          class="absolute right-0 mt-2 w-60 rounded-[var(--radius-button-6)] border border-[var(--color-neutral-300)] bg-[var(--color-white)] shadow-md p-[var(--spacing-s)]"
+        >
+          <nav class="flex flex-col" aria-label="Mobile">
+            {nav.links.map((l) => (
+              <a
+                href={l.href}
+                class="block rounded-[var(--radius-button-6)] px-[var(--spacing-l)] py-[var(--spacing-s)] text-base leading-[var(--line-height-body-2)] text-[var(--color-neutral-650)] hover:bg-[var(--color-neutral-100)] hover:text-[var(--color-brand-deep-blue)]" style="font-size: var(--font-size-body-2)"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href={nav.cta.href}
+              class="mt-[var(--spacing-s)] inline-flex items-center justify-center rounded-[var(--radius-button-6)] px-[var(--spacing-l)] py-[var(--spacing-snudge)] text-base leading-[var(--line-height-body-2)] font-medium text-white bg-[var(--color-brand-anthracite)] hover:bg-[var(--color-blue-39)]" style="font-size: var(--font-size-body-2)"
+            >
+              {nav.cta.label}
+            </a>
+          </nav>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>

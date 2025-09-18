@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./fonts.css";
+@import "./typography.css";
+
+@layer base {
+  /* ejemplo: tipografía por defecto */
+  html {
+    font-family: var(--font-sans);
+  }
+  /* ejemplo: suavizado de fuentes */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

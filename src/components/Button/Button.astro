@@ -1,0 +1,109 @@
+---
+/* src/components/ui/Button.astro
+  Props:
+    - href?: string
+    - external?: boolean
+    - variant?: "primary" | "secondary" | "ghost" (default: "primary")
+    - size?: "sm" | "md" | "lg" (default: "md")
+    - disabled?: boolean
+    - loading?: boolean
+    - block?: boolean (full width)
+*/
+
+interface Props {
+  href?: string;
+  external?: boolean;
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
+  rounded?: "none" | "sm" | "md" | "lg" | "full" | "";
+  disabled?: boolean;
+  loading?: boolean;
+  block?: boolean;
+}
+
+const {
+  href,
+  external = false,
+  variant = "primary",
+  size = "md",
+  rounded = "",
+  disabled = false,
+  loading = false,
+  block = false,
+  ...rest
+} = Astro.props as Props;
+
+const roundedClasses = {
+  none: "rounded-none",
+  sm: "rounded-sm",
+  md: "rounded-md", 
+  lg: "rounded-lg",
+  full: "rounded-full",
+  "": "rounded-[var(--radius-button)]" // default
+};
+
+const base =
+  "inline-flex items-center justify-center transition-colors select-none " +
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-blue-50)] " +
+  (block ? "w-full " : "") +
+  roundedClasses[rounded];
+
+const sizes = {
+  sm: "px-[var(--spacing-l)] py-[var(--spacing-xs)] ty-small",
+  md: "px-[var(--spacing-l)] py-[var(--spacing-snudge)] ty-body-2",
+  lg: "px-[calc(var(--spacing-l)*1.5)] py-[var(--spacing-l)] ty-body-1",
+}[size];
+
+const fontWeights = {
+  sm: "ty-black",
+  md: "ty-semibold", 
+  lg: "ty-semibold",
+}[size];
+
+const variants = {
+  primary:
+    "text-[var(--color-white)] bg-[var(--color-brand-anthracite)] hover:bg-[var(--color-blue-39)] " +
+    "disabled:bg-[color-mix(in_oklab,var(--color-brand-swiss)_60%,var(--color-neutral-300))] disabled:text-[var(--color-neutral-200)]",
+  secondary:
+    "text-[var(--color-brand-deep-blue)] border border-[var(--color-neutral-300)] hover:bg-[var(--color-neutral-100)] " +
+    "disabled:text-[var(--color-neutral-400)] disabled:border-[var(--color-neutral-300)]",
+  ghost:
+    "text-[var(--color-brand-deep-blue)] hover:bg-[var(--color-neutral-100)] " +
+    "disabled:text-[var(--color-neutral-400)]",
+}[variant];
+
+const state = loading
+  ? "aria-busy:true cursor-wait"
+  : disabled
+  ? "aria-disabled:true cursor-not-allowed"
+  : "";
+---
+{href ? (
+  <a
+    href={href}
+    class={`${base} ${sizes} ${variants} ${fontWeights} ${state}`}
+    target={external ? "_blank" : undefined}
+    rel={external ? "noopener noreferrer" : undefined}
+    {...rest}
+  >
+    <slot name="icon-left" />
+    <span class="mx-1"><slot /></span>
+    <slot name="icon-right">{external && (
+      <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path d="M14 3h3v3h-2V5.41l-7.29 7.3-1.42-1.42 7.3-7.29H14V3Z" />
+        <path d="M5 6h5v2H7v6h6v-3h2v5H5V6Z" />
+      </svg>
+    )}</slot>
+  </a>
+) : (
+  <button
+    type="button"
+    disabled={disabled}
+    class={`${base} ${sizes} ${variants} ${fontWeights} ${state}`}
+    {...rest}
+  >
+    <slot name="icon-left" />
+    <p class="mx-1">{loading ? "Loading…" : <slot />}</p>
+    <slot name="icon-right" />
+  </button>
+)}
