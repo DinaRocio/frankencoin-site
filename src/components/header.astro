@@ -30,9 +30,11 @@ const { brand, links, cta } = nav;
     <!-- Right: CTA + Mobile Menu -->
     <div class="flex items-center gap-[var(--spacing-l)]">
       <!-- CTA (desktop) -->
+       <div class="hidden md:block">
       <Button href={nav.cta.href} variant="primary" rounded="full" size="md">
-        Launch App
+        {nav.cta.label}
       </Button>
+      </div>
 
       <!-- Mobile menu (details/summary accesible) -->
       <details class="md:hidden relative">
@@ -56,12 +58,9 @@ const { brand, links, cta } = nav;
                 {l.label}
               </a>
             ))}
-            <a
-              href={nav.cta.href}
-              class="mt-[var(--spacing-s)] inline-flex items-center justify-center rounded-[var(--radius-button-6)] px-[var(--spacing-l)] py-[var(--spacing-snudge)] text-base leading-[var(--line-height-body-2)] font-medium text-white bg-[var(--color-brand-anthracite)] hover:bg-[var(--color-blue-39)]" style="font-size: var(--font-size-body-2)"
-            >
-              {nav.cta.label}
-            </a>
+           <Button href={nav.cta.href} variant="primary" rounded="full" size="md">
+            {nav.cta.label}
+          </Button>
           </nav>
         </div>
       </details>
