@@ -1,0 +1,30 @@
+---
+/* src/components/chain/ChainAction.astro
+  Acciones por chain (token|copy|swap|bridge).
+  Props:
+    - kind: "token" | "copy" | "swap" | "bridge"
+    - href?: string        (requerido salvo kind="copy")
+    - address?: string     (requerido si kind="copy")
+    - label?: string       (texto visible; default según kind)
+*/
+import Button from "./Button.astro";
+import CopyButton from "./CopyButton.astro";
+
+const { kind = "token", href, address, label } = Astro.props;
+
+const defaults: Record<string, string> = {
+  token: "Token Contract",
+  swap: "Swap onchain",
+  bridge: "Bridge",
+  copy: "Copy Address",
+};
+const text = label ?? defaults[kind];
+---
+{kind === "copy" ? (
+  <CopyButton value={address} label={text} size="sm" />
+) : (
+  <Button href={href} external variant="secondary" size="sm">
+    {text}
+    <span slot="icon-right" />
+  </Button>
+)}

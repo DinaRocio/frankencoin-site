@@ -1,0 +1,65 @@
+---
+/* src/components/ui/CopyButton.astro
+  Botón compacto para copiar direcciones/texto.
+  Props:
+    - value: string (texto a copiar)
+    - label?: string (default: "Copy")
+    - copiedLabel?: string (default: "Copied!")
+    - size?: "sm" | "md" (default: "sm")
+*/
+interface Props {
+  value: string;
+  label?: string;
+  copiedLabel?: string;
+  size?: "sm" | "md";
+}
+
+const { value, label = "Copy", copiedLabel = "Copied!", size = "sm", ...rest } = Astro.props as Props;
+
+const base =
+  "inline-flex items-center justify-center rounded-[var(--radius-button)] " +
+  "text-[var(--font-size-body-2)] leading-[var(--line-height-body-2)] " +
+  "bg-[var(--color-neutral-100)] hover:bg-[var(--color-neutral-200)] " +
+  "text-[var(--color-neutral-650)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-blue-50)]";
+
+const sizes = {
+  sm: "px-[var(--spacing-s)] py-[var(--spacing-xs)]",
+  md: "px-[var(--spacing-l)] py-[var(--spacing-s)]",
+}[size];
+
+const id = `copybtn-${Math.random().toString(36).slice(2)}`;
+---
+<button
+  id={id}
+  type="button"
+  class={`${base} ${sizes}`}
+  data-value={value}
+  {...rest}
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="mr-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+    <path d="M6 3h7a2 2 0 0 1 2 2v8H8a2 2 0 0 1-2-2V3Z" />
+    <path d="M4 7h7a2 2 0 0 1 2 2v6H6a2 2 0 0 1-2-2V7Z" />
+  </svg>
+  <span>{label}</span>
+</button>
+
+<script is:inline>
+  (function(){
+    const btn = document.getElementById("{id}");
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      const val = btn.dataset.value || "";
+      try {
+        await navigator.clipboard.writeText(val);
+        const span = btn.querySelector("span");
+        const old = span?.textContent;
+        if (span) {
+          span.textContent = "{copiedLabel}";
+          setTimeout(() => (span.textContent = old), 1500);
+        }
+      } catch(e) {
+        console.error("Copy failed", e);
+      }
+    });
+  })();
+</script>

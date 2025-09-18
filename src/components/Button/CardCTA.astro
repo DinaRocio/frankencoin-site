@@ -1,0 +1,12 @@
+---
+/* src/components/ui/CardCTA.astro
+  Wrapper de Button para CTAs dentro de tarjetas.
+  Props: hereda de Button + block?: boolean (default true)
+*/
+import Button from "./Button.astro";
+const { block = true, ...rest } = Astro.props;
+---
+<Button variant="primary" size="md" block={block} {...rest}>
+  <slot />
+  <slot name="icon-right" slot="icon-right" />
+</Button>

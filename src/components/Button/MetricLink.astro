@@ -1,0 +1,42 @@
+---
+/* src/components/ui/MetricLink.astro
+  Link liviano para métricas (pill/link-button)
+  Props:
+    - href: string
+    - external?: boolean
+    - size?: "sm" | "md" (default: "sm")
+*/
+interface Props {
+  href: string;
+  external?: boolean;
+  size?: "sm" | "md";
+}
+
+const { href, external = true, size = "sm", ...rest } = Astro.props as Props;
+
+const base =
+  "inline-flex items-center rounded-[var(--radius-button)] " +
+  "text-[var(--font-size-body-2)] leading-[var(--line-height-body-2)] " +
+  "text-[var(--color-brand-deep-blue)] hover:bg-[var(--color-neutral-100)] " +
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-blue-50)]";
+
+const sizes = {
+  sm: "px-[var(--spacing-s)] py-[var(--spacing-xs)]",
+  md: "px-[var(--spacing-l)] py-[var(--spacing-s)]",
+}[size];
+---
+<a
+  href={href}
+  class={`${base} ${sizes}`}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+  {...rest}
+>
+  <slot />
+  {external && (
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path d="M14 3h3v3h-2V5.41l-7.29 7.3-1.42-1.42 7.3-7.29H14V3Z" />
+      <path d="M5 6h5v2H7v6h6v-3h2v5H5V6Z" />
+    </svg>
+  )}
+</a>
