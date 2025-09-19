@@ -1,0 +1,183 @@
+{
+  "header": {
+    "title": "Explore the Frankencoin Ecosystem.",
+    "subtitle": "Pay, swap, borrow, buy tokenized stocks, exchange for fiat currency, and more with tools that are built on top of the Frankencoin protocol."
+  },
+  "intro": {
+    "title": "Browse and search projects using Frankencoin.",
+    "subtitle": "Building something cool?",
+    "cta": {
+      "label": "Submit your project.",
+      "href": "https://github.com/Frankencoin-ZCHF/www/issues"
+    }
+  },
+  "projects": [
+    {
+      "id": "frankencoin-dapp",
+      "name": "Frankencoin dApp",
+      "description": "The official Frankencoin decentralized application for minting, challenging, and managing ZCHF positions.",
+      "category": "Core Protocol",
+      "tags": ["minting", "positions", "governance"],
+      "url": "https://app.frankencoin.com",
+      "logo": "/images/frankencoin-logo.svg",
+      "status": "live"
+    },
+    {
+      "id": "uniswap-zchf",
+      "name": "Uniswap ZCHF Pools",
+      "description": "Trade ZCHF on Uniswap with deep liquidity pools against ETH, USDC, and other major tokens.",
+      "category": "DEX Trading",
+      "tags": ["swap", "liquidity", "trading"],
+      "url": "https://app.uniswap.org",
+      "logo": "/images/uniswap-logo.svg",
+      "status": "live"
+    },
+    {
+      "id": "curve-zchf",
+      "name": "Curve ZCHF Pools",
+      "description": "Stable swaps and yield farming opportunities with ZCHF on Curve Finance.",
+      "category": "DEX Trading",
+      "tags": ["stableswap", "yield", "farming"],
+      "url": "https://curve.fi",
+      "logo": "/images/curve-logo.svg",
+      "status": "live"
+    },
+    {
+      "id": "aave-zchf",
+      "name": "Aave ZCHF Market",
+      "description": "Lend and borrow ZCHF on Aave protocol with competitive interest rates.",
+      "category": "Lending",
+      "tags": ["lending", "borrowing", "interest"],
+      "url": "https://app.aave.com",
+      "logo": "/images/aave-logo.svg",
+      "status": "proposed"
+    },
+    {
+      "id": "compound-zchf",
+      "name": "Compound ZCHF Market",
+      "description": "Supply ZCHF to earn interest or use it as collateral for borrowing other assets.",
+      "category": "Lending",
+      "tags": ["supply", "collateral", "compound"],
+      "url": "https://app.compound.finance",
+      "logo": "/images/compound-logo.svg",
+      "status": "proposed"
+    },
+    {
+      "id": "zchf-payment-gateway",
+      "name": "ZCHF Payment Gateway",
+      "description": "Accept ZCHF payments in your e-commerce store or application with instant settlement.",
+      "category": "Payments",
+      "tags": ["payments", "e-commerce", "merchants"],
+      "url": "https://pay.frankencoin.com",
+      "logo": "/images/payment-gateway-logo.svg",
+      "status": "development"
+    },
+    {
+      "id": "tokenized-stocks",
+      "name": "Tokenized Swiss Stocks",
+      "description": "Buy and trade tokenized Swiss stocks using ZCHF with fractional ownership and 24/7 trading.",
+      "category": "Tokenized Assets",
+      "tags": ["stocks", "tokenization", "trading"],
+      "url": "https://stocks.frankencoin.com",
+      "logo": "/images/stocks-logo.svg",
+      "status": "development"
+    },
+    {
+      "id": "zchf-fiat-bridge",
+      "name": "ZCHF Fiat Bridge",
+      "description": "Convert between ZCHF and Swiss Francs through regulated banking partners.",
+      "category": "Fiat Gateway",
+      "tags": ["fiat", "banking", "conversion"],
+      "url": "https://bridge.frankencoin.com",
+      "logo": "/images/bridge-logo.svg",
+      "status": "development"
+    },
+    {
+      "id": "metamask-zchf",
+      "name": "MetaMask ZCHF Integration",
+      "description": "Native ZCHF support in MetaMask wallet for seamless transactions and balance tracking.",
+      "category": "Wallet",
+      "tags": ["wallet", "metamask", "integration"],
+      "url": "https://metamask.io",
+      "logo": "/images/metamask-logo.svg",
+      "status": "live"
+    },
+    {
+      "id": "gnosis-safe-zchf",
+      "name": "Gnosis Safe ZCHF Support",
+      "description": "Multi-signature wallet support for ZCHF with advanced treasury management features.",
+      "category": "Wallet",
+      "tags": ["multisig", "treasury", "security"],
+      "url": "https://safe.global",
+      "logo": "/images/gnosis-logo.svg",
+      "status": "live"
+    },
+    {
+      "id": "zchf-analytics",
+      "name": "ZCHF Analytics Dashboard",
+      "description": "Real-time analytics and insights for ZCHF markets, positions, and ecosystem metrics.",
+      "category": "Analytics",
+      "tags": ["analytics", "metrics", "dashboard"],
+      "url": "https://analytics.frankencoin.com",
+      "logo": "/images/analytics-logo.svg",
+      "status": "development"
+    },
+    {
+      "id": "zchf-mobile-wallet",
+      "name": "ZCHF Mobile Wallet",
+      "description": "Native mobile wallet for iOS and Android with QR payments and DeFi integration.",
+      "category": "Wallet",
+      "tags": ["mobile", "payments", "defi"],
+      "url": "https://wallet.frankencoin.com",
+      "logo": "/images/mobile-wallet-logo.svg",
+      "status": "development"
+    }
+  ],
+  "tabs": [
+    {
+      "href": "https://dfx.swiss/",
+      "image": "images/Vectors-Wrapper_3.svg",
+      "imageAlt": "DFX Logo",
+      "badge": "Service Provider",
+      "descriptions": [
+        "DFX is the bridge between the traditional banking world and the cryptocurrency space and enables private and corporate customers to buy and sell cryptocurrencies the most convenient way possible.",
+        "With DFX Services, there are many ways to buy and sell cryptocurrencies via bank and credit card transactions. You can buy cryptocurrencies directly into popular wallets such as Metamask, Rabby Wallet or more than 300 Wallets using WalletConnect and hardware wallets such as BitBox, Ledger and Trezor."
+      ],
+      "linkLabel": "dfx.swiss"
+    },
+    {
+      "href": "https://www.mtpelerin.com/?bdc=ZCHF",
+      "image": "images/mt-pelerin-logo.png",
+      "imageAlt": "Mt Pelerin Logo",
+      "badge": "Service Provider",
+      "descriptions": [
+        "Mt Pelerin is a regulated Swiss crypto-fiat platform that makes it easy to bridge traditional finance and digital assets.",
+        "Users can convert between Swiss Francs and cryptocurrencies 24/7, receive their own Swiss IBAN for incoming payments, pay invoices via QR-bills, and manage their assets in full self-custody. Together, these features make it possible to fully live on-chain without giving up access to the banking system."
+      ],
+      "linkLabel": "mtpelerin.com"
+    },
+    {
+      "href": "https://operal.solutions/",
+      "image": "images/OperalLogo-1-Compressify.io.webp",
+      "imageAlt": "Operal Logo",
+      "badge": "Gaming",
+      "descriptions": [
+        "Operal AG is a Swiss Startup working on gameification of impact. The B2B clients include Pensionfunds, the Liechtenstein Bankers Association, and large SMEs in Switzerland.",
+        "On the B2C side Operal is providing Hypercasual Mobile Games with impact to the entire world and has established a extremely high reputation for excellence and innovation."
+      ],
+      "linkLabel": "operal.solutions"
+    },
+    {
+      "href": "https://ammer.cash/",
+      "image": "images/ammer_pay_logo-Compressify.io.webp",
+      "imageAlt": "Ammer Logo",
+      "badge": "Payment",
+      "descriptions": [
+        "Ammer.cash is a versatile platform designed to facilitate crypto payments seamlessly.",
+        "It enables businesses to accept payments in various cryptocurrencies through the Ammer Pay app, which can be used as a point-of-sale terminal.",
+        "The service supports payments via Ammer Cards, QR codes, and smartphones, significantly reducing transaction fees compared to traditional methods like Visa and Mastercard."
+      ],
+      "linkLabel": "ammer.cash"
+    }
+  ]
+}

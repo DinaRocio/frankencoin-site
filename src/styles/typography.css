@@ -5,7 +5,7 @@
     font-family: var(--font-sans);
     font-size: var(--font-size-display);
     line-height: var(--line-height-display);
-    font-weight: 900;
+    font-weight: 1000;
   }
 
   .ty-display-mobile {
@@ -51,7 +51,7 @@
   .ty-title-3 {
     font-family: var(--font-sans);
     font-size: var(--font-size-title-3);
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .ty-subtitle {
@@ -81,7 +81,6 @@
     font-size: var(--font-size-body-2);
     line-height: var(--line-height-body-2);
     font-weight: 400;
-    letter-spacing: 0.02em;
   }
 
   .ty-body-3 {

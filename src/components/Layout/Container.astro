@@ -1,0 +1,21 @@
+---
+/* src/components/layout/Container.astro
+   Props:
+     - width?: "narrow" | "content" | "wide" | "full" (default "content")
+*/
+interface Props {
+  width?: "narrow" | "content" | "wide" | "full";
+}
+
+const { width = "content" } = Astro.props as Props;
+
+const widths = {
+  narrow: "max-w-3xl",
+  content: "max-w-6xl",
+  wide: "max-w-7xl",
+  full: "max-w-none",
+}[width];
+---
+<div class={`mx-auto w-full ${widths} px-[var(--spacing-l)]`}>
+  <slot />
+</div>

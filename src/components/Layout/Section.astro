@@ -1,0 +1,50 @@
+---
+/* src/components/layout/Section.astro
+   Props:
+     - id?: string
+     - variant?: "plain" | "accent" (default "plain")
+     - width?: "narrow" | "content" | "wide" | "full" (default "content")
+     - align?: "left" | "center" (default "left")
+     - pad?: "sm" | "md" | "lg" (default "md")
+*/
+import Container from "./Container.astro";
+
+interface Props {
+  id?: string;
+  variant?: "plain" | "accent";
+  width?: "narrow" | "content" | "wide" | "full";
+  align?: "left" | "center";
+  pad?: "sm" | "md" | "lg";
+}
+
+const {
+  id,
+  variant = "plain",
+  width = "content",
+  align = "left",
+  pad = "md",
+} = Astro.props as Props;
+
+const pads = {
+  sm: "py-[calc(var(--spacing-l)*2)]",   // ~32px si --spacing-l=16px
+  md: "py-[calc(var(--spacing-l)*4)]",   // ~64px
+  lg: "py-[calc(var(--spacing-l)*6)]",   // ~96px
+}[pad];
+
+const bg =
+  variant === "accent"
+    ? "bg-[var(--color-neutral-100)]"
+    : "bg-[var(--color-white)]";
+
+const textAlign = align === "center" ? "text-center" : "text-left";
+---
+<section id={id} class={`${pads} ${bg}`}>
+  <Container width={width}>
+    <div class={`${textAlign}`}>
+      <!-- Slot para encabezado (título/subtítulo/eyebrow) -->
+      <slot name="header" />
+      <!-- Contenido libre -->
+      <slot />
+    </div>
+  </Container>
+</section>

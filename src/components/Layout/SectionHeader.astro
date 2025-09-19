@@ -1,0 +1,43 @@
+---
+/* src/components/layout/SectionHeader.astro
+   Props:
+     - title: string
+     - subtitle?: string
+     - size?: "display" | "title1" | "title2" | "title3" (default "title1")
+     - align?: "left" | "center" (default "left")
+*/
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  size?: "display" | "title1" | "title2" | "title3" | "title4";
+  align?: "left" | "center";
+}
+
+const {
+  title,
+  subtitle,
+  size = "title1",
+  align = "left",
+} = Astro.props;
+
+const titleSizes = {
+  display: "ty-display text-center",
+  title1: "ty-title-1",
+  title2: "ty-title-2", 
+  title3: "ty-title-3",
+  title4: "ty-title-4",
+}[size];
+
+const alignCls = align === "center" ? "mx-auto" : "";
+---
+<header class={`space-y-[var(--spacing-s)] max-w-3xl ${alignCls}`}>
+  <h2 class={` text-[color:var(--color-brand-deep-blue)] ${titleSizes}`}>
+    {title}
+  </h2>
+  {subtitle && (
+    <p class="ty-body-2 text-center text-[color:var(--color-neutral-650)]">
+      {subtitle}
+    </p>
+  )}
+</header>

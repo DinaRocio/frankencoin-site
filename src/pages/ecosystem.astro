@@ -1,7 +1,110 @@
 ---
+import Button from '../components/Button/Button.astro';
+import Section from '../components/Layout/Section.astro';
+import SectionHeader from '../components/Layout/SectionHeader.astro';
 import Base from '../layouts/Base.astro';
+import CardEcosystem from '../components/Ecosystem/CardEcosystem.astro';
+import ecosystem from "../content/ecosystem.json";
 ---
 
 <Base>
-<h1>ecosystem</h1>
+    <Section variant="accent" width="content" align="left" pad="lg" id="ecosystem-header">
+        <Fragment slot="header">
+          <SectionHeader
+            title={ecosystem.header.title}
+            subtitle={ecosystem.header.subtitle}
+            size="display"
+            align="center"
+          />
+        </Fragment>
+      </Section>
+    
+      <Section variant="plain" width="content" align="left" pad="lg" id="ecosystem-intro">
+        <Fragment >
+          <p class="ty-body-2">{ecosystem.intro.title}</p>
+          <div class="flex items-center gap-2">
+            <p class="ty-body-2">{ecosystem.intro.subtitle}</p>
+            <a
+              href={ecosystem.intro.cta.href}
+              target="_blank"
+              class="textlink-m underline underline-offset-4"
+              >{ecosystem.intro.cta.label}</a
+            >
+          </div>
+        </Fragment>
+      </Section>
+      <Section variant="plain" width="content" align="left" pad="lg" id="ecosystem-tabs">
+        <div
+          data-current="Tab 3"
+          data-easing="ease"
+          data-duration-in="300"
+          data-duration-out="100"
+          class="tabs w-tabs"
+        >
+          <!-- Tabs menu usando Button -->
+          <div class="tabs-menu w-tab-menu flex flex-wrap gap-2">
+            {ecosystem.tabs.map((tab, index) => (
+              <Button
+                href="#"
+                variant="secondary"
+                size="md"
+                rounded="full"
+                data-w-tab={`Tab ${index + 1}`}
+              >
+                {tab.label}
+              </Button>
+            ))}
+          </div>  
+      </Section>
+      <Section variant="accent" width="content" align="left" pad="md">
+        <CardEcosystem
+          href="https://dfx.swiss/"
+          image="images/Vectors-Wrapper_3.svg"
+          imageAlt="DFX Logo"
+          badge="Service Provider"
+          descriptions={[
+            "DFX is the bridge between the traditional banking world and the cryptocurrency space and enables private and corporate customers to buy and sell cryptocurrencies the most convenient way possible.",
+            "With DFX Services, there are many ways to buy and sell cryptocurrencies via bank and credit card transactions. You can buy cryptocurrencies directly into popular wallets such as Metamask, Rabby Wallet or more than 300 Wallets using WalletConnect and hardware wallets such as BitBox, Ledger and Trezor.",
+          ]}
+          linkLabel="dfx.swiss"
+        />
+      </Section>
+      <Section variant="accent" width="content" align="left" pad="md">
+        <CardEcosystem
+          href="https://dfx.swiss/"
+          image="images/Vectors-Wrapper_3.svg"
+          imageAlt="DFX Logo"
+          badge="Service Provider"
+          descriptions={[
+            "DFX is the bridge between the traditional banking world and the cryptocurrency space and enables private and corporate customers to buy and sell cryptocurrencies the most convenient way possible.",
+            "With DFX Services, there are many ways to buy and sell cryptocurrencies via bank and credit card transactions. You can buy cryptocurrencies directly into popular wallets such as Metamask, Rabby Wallet or more than 300 Wallets using WalletConnect and hardware wallets such as BitBox, Ledger and Trezor.",
+          ]}
+          linkLabel="dfx.swiss"
+        />
+      </Section>
+      <Section variant="accent" width="content" align="left" pad="md">
+        <CardEcosystem
+          href="https://dfx.swiss/"
+          image="images/Vectors-Wrapper_3.svg"
+          imageAlt="DFX Logo"
+          badge="Service Provider"
+          descriptions={[
+            "DFX is the bridge between the traditional banking world and the cryptocurrency space and enables private and corporate customers to buy and sell cryptocurrencies the most convenient way possible.",
+            "With DFX Services, there are many ways to buy and sell cryptocurrencies via bank and credit card transactions. You can buy cryptocurrencies directly into popular wallets such as Metamask, Rabby Wallet or more than 300 Wallets using WalletConnect and hardware wallets such as BitBox, Ledger and Trezor.",
+          ]}
+          linkLabel="dfx.swiss"
+        />
+      </Section>
+      {ecosystem.tabs.map((tab, index) => (
+         <Section variant="accent" width="content" align="left" pad="md">
+        <CardEcosystem
+          href={tab.href}
+          image={tab.image}
+          imageAlt={tab.imageAlt}
+          badge="Service Provider"
+          descriptions={tab.descriptions}
+          linkLabel="dfx.swiss"
+        />
+      </Section>
+      ))}
 </Base>

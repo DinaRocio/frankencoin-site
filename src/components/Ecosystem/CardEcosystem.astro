@@ -1,0 +1,68 @@
+---
+interface Props {
+  href: string;
+  image: string;
+  imageAlt?: string;
+  badge: string;
+  descriptions: string[]; // párrafos
+  linkLabel: string;
+}
+
+const {
+  href,
+  image,
+  imageAlt = "",
+  badge,
+  descriptions,
+  linkLabel,
+} = Astro.props as Props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="card-ecosystem w-inline-block"
+>
+<div class="flex items-center gap-[var(--spacing-l)]">
+  <div class="header-2 flex flex-col items-center gap-[var(--spacing-l)] max-lg:w-[100%]">
+    <img
+      src={image}
+      alt={imageAlt}
+      loading="lazy"
+      class="vectors-wrapper-23"
+    />
+    <div class="badge">
+      <div class="text-17">{badge}</div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="description-2 space-y-4">
+      {descriptions.map((d) => (
+        <p class="ty-title-3">{d}</p>
+      ))}
+    </div>
+
+    <div class="link-2 flex items-center justify-between">
+      <div class="body-2-stronger">{linkLabel}</div>
+      <div class="div-block-4 flex">
+        <img
+          width="24"
+          height="24"
+          alt=""
+          src="images/Logo-Blue.svg"
+          loading="lazy"
+          class="card-arrow blue"
+        />
+        <img
+          src="images/arrow_outward_2.svg"
+          loading="lazy"
+          alt=""
+          class="image-21"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+</a>
