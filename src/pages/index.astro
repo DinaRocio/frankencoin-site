@@ -1,7 +1,67 @@
 ---
-import Base from '../layouts/Base.astro';
+import Section from "../components/Layout/Section.astro";
+import SectionHeader from "../components/Layout/SectionHeader.astro";
+import Base from "../layouts/Base.astro";
+import index from "../content/index.json";
+import Button from "../components/Button/Button.astro";
+import FlexStack from "../components/Layout/FlexStack.astro";
+import SocialLinksBar from "../components/SocialLinksBar.astro";
 ---
 
 <Base>
-<h1>index</h1>
+  <Section
+    variant="accent"
+    width="content"
+    align="center"
+    pad="lg"
+    id="ecosystem-header"
+  >
+    <FlexStack direction="col" gap="40px" align="center">
+      <img
+        src={index.hero.image}
+        alt={index.hero.imageAlt}
+        width="128"
+        height="128"
+        loading="lazy"
+      />
+      <SectionHeader
+        title={index.hero.title}
+        subtitle={index.hero.subtitle}
+        maxWidth="6xl"
+        size="display"
+        align="center"
+      />
+      <Button variant="secondary" href={index.hero.cta.href} rounded="sm"
+        >{index.hero.cta.label}</Button
+      >
+      <SocialLinksBar theme={"dark"} />
+    </FlexStack>
+  </Section>
+  <Section variant="accent">
+    <div class="flex md:flex-row flex-col gap-40px items-center gap-8">
+      <div class="w-full md:w-1/2">
+        <h3 class="ty-title-1 ty-black">{index.brand_assets.title}</h3>
+      </div>
+      <div class="flex md:flex-row flex-col w-full gap-6">
+        {
+          index.brand_assets.assets.map((asset) => (
+            <div class="w-full md:w-1/2 flex flex-col gap-6">
+              <h4 class="ty-body-1">{asset.description}</h4>
+              <div class="flex items-center gap-2">
+                <span class="text-[var(--color-brand-swiss)] hover:underline font-bold">
+                  {asset.cta.label}
+                </span>
+                <img
+                  src="images/arrow_outward_2.svg"
+                  loading="lazy"
+                  alt=""
+                  class="w-4 h-4"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Section>
 </Base>

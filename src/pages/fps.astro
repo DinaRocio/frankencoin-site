@@ -1,7 +1,57 @@
 ---
-import Base from '../layouts/Base.astro';
+import Section from "../components/Layout/Section.astro";
+import SectionHeader from "../components/Layout/SectionHeader.astro";
+import Base from "../layouts/Base.astro";
+import fps from "../content/fps.json";
+import Button from "../components/Button/Button.astro";
+import FlexStack from "../components/Layout/FlexStack.astro";
 ---
 
 <Base>
-<h1>fps</h1>
+  <Section
+    variant="accent"
+    width="content"
+    align="center"
+    pad="lg"
+    id="ecosystem-header"
+  >
+    <FlexStack direction="col" gap="40px" align="center">
+      <img
+        src={fps.header.image}
+        alt={fps.header.imageAlt}
+        width="128"
+        height="128"
+        loading="lazy"
+      />
+      <SectionHeader
+        title={fps.header.title}
+        subtitle={fps.header.subtitle}
+        maxWidth="6xl"
+        size="display"
+        align="center"
+      />
+      <Button variant="secondary" href={fps.header.cta.href} rounded="sm"
+        >{fps.header.cta.label}</Button
+      >
+    </FlexStack>
+  </Section>
+  <Section>
+    <FlexStack direction="col" gap="40px" align="center">
+      {
+        fps.introduction.map((feature) => (
+          <div class="flex flex-col md:flex-row justify-between">
+            <div class="w-full md:w-1/2">
+              <h1 class="ty-title-1 ty-black">{feature.title}</h1>
+            </div>
+            <div class="w-full md:w-1/2">
+              <p
+                class="ty-body-1"
+                set:html={feature.description.replace(/\n/g, "<br>")}
+              />
+            </div>
+          </div>
+        ))
+      }
+    </FlexStack>
+  </Section>
 </Base>

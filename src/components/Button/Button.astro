@@ -36,10 +36,10 @@ const {
 const roundedClasses = {
   none: "rounded-none",
   sm: "rounded-sm",
-  md: "rounded-md", 
+  md: "rounded-md",
   lg: "rounded-lg",
   full: "rounded-full",
-  "": "rounded-[var(--radius-button)]" // default
+  "": "rounded-[var(--radius-button)]", // default
 };
 
 const base =
@@ -56,7 +56,7 @@ const sizes = {
 
 const fontWeights = {
   sm: "ty-black",
-  md: "ty-semibold", 
+  md: "ty-black",
   lg: "ty-semibold",
 }[size];
 
@@ -75,35 +75,48 @@ const variants = {
 const state = loading
   ? "aria-busy:true cursor-wait"
   : disabled
-  ? "aria-disabled:true cursor-not-allowed"
-  : "";
+    ? "aria-disabled:true cursor-not-allowed"
+    : "";
 ---
-{href ? (
-  <a
-    href={href}
-    class={`${base} ${sizes} ${variants} ${fontWeights} ${state}`}
-    target={external ? "_blank" : undefined}
-    rel={external ? "noopener noreferrer" : undefined}
-    {...rest}
-  >
-    <slot name="icon-left" />
-    <span class="mx-1"><slot /></span>
-    <slot name="icon-right">{external && (
-      <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path d="M14 3h3v3h-2V5.41l-7.29 7.3-1.42-1.42 7.3-7.29H14V3Z" />
-        <path d="M5 6h5v2H7v6h6v-3h2v5H5V6Z" />
-      </svg>
-    )}</slot>
-  </a>
-) : (
-  <button
-    type="button"
-    disabled={disabled}
-    class={`${base} ${sizes} ${variants} ${fontWeights} ${state}`}
-    {...rest}
-  >
-    <slot name="icon-left" />
-    <p class="mx-1">{loading ? "Loading…" : <slot />}</p>
-    <slot name="icon-right" />
-  </button>
-)}
+
+{
+  href ? (
+    <a
+      href={href}
+      class={`${base} ${sizes} ${variants} ${fontWeights} ${state}`}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      {...rest}
+    >
+      <slot name="icon-left" />
+      <span class="mx-1">
+        <slot />
+      </span>
+      <slot name="icon-right">
+        {external && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="ml-1 h-4 w-4"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M14 3h3v3h-2V5.41l-7.29 7.3-1.42-1.42 7.3-7.29H14V3Z" />
+            <path d="M5 6h5v2H7v6h6v-3h2v5H5V6Z" />
+          </svg>
+        )}
+      </slot>
+    </a>
+  ) : (
+    <button
+      type="button"
+      disabled={disabled}
+      class={`${base} ${sizes} ${variants} ${fontWeights} ${state}`}
+      {...rest}
+    >
+      <slot name="icon-left" />
+      <p class="mx-1">{loading ? "Loading…" : <slot />}</p>
+      <slot name="icon-right" />
+    </button>
+  )
+}

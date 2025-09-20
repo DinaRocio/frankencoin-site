@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "image": "images/Hero_pic_mobile_2.webp",
+    "imageAlt": "Frankencoin logo",
+    "title": "Frankencoin",
+    "subtitle": "In the last 50 years, the Swiss franc climbed more than 240% against the dollar. Frankencoin (ZCHF) brings this strength on chain as a collateralized, oracle-free stablecoin that tracks the Swiss franc.",
+    "cta": { "label": "Launch Web App", "href": "https://app.frankencoin.com/" }
+  },
+
+  "stats": [
+    { "label": "Total value locked ", "value": "28'299'272.79" },
+    { "label": "Total supply", "value": "12'452'881.67" },
+    { "label": "fps market cap", "value": "10'328'609.12" }
+  ],
+  "core_features": {
+    "title": "The Three Core Functions",
+    "subtitle": "Choose Your Use Case",
+    "features": [
+      {
+        "title": "Pay",
+        "image": "images/Icon-Payments.svg",
+        "description": "Pay with Frankencoin (ZCHF) at stores, settle your bills and receive your salary.",
+        "cta": {
+          "label": "Visit Mt Pelerin",
+          "href": "https://www.mtpelerin.com/?bdc=ZCHF"
+        }
+      },
+      {
+        "title": "Borrow",
+        "image": "images/Icon-Mint.svg",
+        "description": "Use your crypto to borrow Frankencoin at attractive terms.",
+        "cta": {
+          "label": "Launch Mint",
+          "href": "https://app.frankencoin.com/mint"
+        }
+      },
+      {
+        "title": "Earn",
+        "image": "images/Icon-Invest.svg",
+        "description": "Get a yield on your Swiss franc stablecoin. ",
+        "cta": {
+          "label": "Launch Savings",
+          "href": "https://app.frankencoin.com/equity"
+        }
+      }
+    ]
+  },
+  "brand_assets": {
+    "title": "Brand Assets",
+    "assets": [
+      {
+        "description": "Check out our Github repository for brand assets, including Frankencoin and FPS logos.",
+        "cta": {
+          "label": "Logo Assets",
+          "href": "https://github.com/Frankencoin-ZCHF/www/tree/main/media_kit"
+        }
+      },
+      {
+        "description": "Download our Brand Guidelines to learn more about how to use the logo, as well as important details such as brand colors and typography.",
+        "cta": {
+          "label": "Download Brand Guidelines",
+          "href": "https://github.com/Frankencoin-ZCHF/www/blob/main/media_kit/frankencoin_brand_guidelines.pdf"
+        }
+      }
+    ]
+  }
+}
