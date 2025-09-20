@@ -1,10 +1,13 @@
 ---
+import Button from "../Button/Button.astro";
+import NavLink from "../Button/NavLink.astro";
+
 interface Props {
   href: string;
   image: string;
   imageAlt?: string;
   badge: string;
-  descriptions: string[]; // párrafos
+  description: string; // 👈 ahora array
   linkLabel: string;
 }
 
@@ -13,7 +16,7 @@ const {
   image,
   imageAlt = "",
   badge,
-  descriptions,
+  description,
   linkLabel,
 } = Astro.props as Props;
 ---
@@ -22,47 +25,44 @@ const {
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="card-ecosystem w-inline-block"
+  class="block rounded-lg shadow-md hover:shadow-lg transition"
 >
-<div class="flex items-center gap-[var(--spacing-l)]">
-  <div class="header-2 flex flex-col items-center gap-[var(--spacing-l)] max-lg:w-[100%]">
-    <img
-      src={image}
-      alt={imageAlt}
-      loading="lazy"
-      class="vectors-wrapper-23"
-    />
-    <div class="badge">
-      <div class="text-17">{badge}</div>
-    </div>
-  </div>
+  <div
+    class="flex flex-row justify-between lg:flex-row gap-[var(--spacing-l)] p-[var(--spacing-xxl)]"
+  >
+    <!-- Imagen + Badge -->
+    <div class="flex flex-col items-start gap-[var(--spacing-m)]">
+      <img
+        src={image}
+        alt={imageAlt}
+        loading="lazy"
+        class="max-h-[50px] max-w-[300px]"
+      />
 
-  <div class="about">
-    <div class="description-2 space-y-4">
-      {descriptions.map((d) => (
-        <p class="ty-title-3">{d}</p>
-      ))}
+      <Button size="md">{linkLabel}</Button>
     </div>
 
-    <div class="link-2 flex items-center justify-between">
-      <div class="body-2-stronger">{linkLabel}</div>
-      <div class="div-block-4 flex">
-        <img
-          width="24"
-          height="24"
-          alt=""
-          src="images/Logo-Blue.svg"
-          loading="lazy"
-          class="card-arrow blue"
-        />
+    <!-- Texto -->
+    <div
+      class="flex flex-col items-start about lg:w-2/3 space-y-[var(--spacing-m)] gap-[var(--spacing-l)]"
+    >
+      <div class="description-2 space-y-4">
+        <p class="ty-body-1 text-[color:var(--color-neutral-700)]">
+          {description}
+        </p>
+      </div>
+
+      <div class="link-2 flex items-center gap-2 pt-[var(--spacing-s)]">
+        <span class="text-[var(--color-brand-swiss)] hover:underline font-bold">
+          {linkLabel}
+        </span>
         <img
           src="images/arrow_outward_2.svg"
           loading="lazy"
           alt=""
-          class="image-21"
+          class="w-4 h-4"
         />
       </div>
     </div>
   </div>
-</div>
 </a>

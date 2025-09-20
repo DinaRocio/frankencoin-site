@@ -1,0 +1,53 @@
+---
+interface Props {
+  direction?: "row" | "col";
+  gap?: number | string;
+  align?: "start" | "center" | "end" | "stretch" | "baseline";
+  justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
+  wrap?: "nowrap" | "wrap" | "wrap-reverse";
+  className?: string;
+}
+
+const {
+  direction = "row",
+  gap = 4,
+  align = "stretch",
+  justify = "start",
+  wrap = "nowrap",
+  className = "",
+} = Astro.props as Props;
+
+const ALIGN_MAP: Record<string, string> = {
+  start: "items-start",
+  center: "items-center",
+  end: "items-end",
+  stretch: "items-stretch",
+  baseline: "items-baseline",
+};
+
+const JUSTIFY_MAP: Record<string, string> = {
+  start: "justify-start",
+  center: "justify-center",
+  end: "justify-end",
+  between: "justify-between",
+  around: "justify-around",
+  evenly: "justify-evenly",
+};
+
+const WRAP_MAP: Record<string, string> = {
+  nowrap: "flex-nowrap",
+  wrap: "flex-wrap",
+  "wrap-reverse": "flex-wrap-reverse",
+};
+
+const directionClass = direction === "row" ? "flex-row" : "flex-col";
+const gapClass = typeof gap === "number" ? `gap-${gap}` : "";
+const arbitraryGap = typeof gap === "string" ? gap : "";
+---
+
+<div
+  class={`flex ${directionClass} ${ALIGN_MAP[align]} ${JUSTIFY_MAP[justify]} ${WRAP_MAP[wrap]} ${gapClass} ${className}`}
+  style={arbitraryGap ? `gap: ${arbitraryGap}` : ""}
+>
+  <slot />
+</div>
