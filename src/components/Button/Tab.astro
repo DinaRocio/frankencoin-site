@@ -1,0 +1,21 @@
+---
+// Props
+interface Props {
+  label: string;
+  active?: boolean;
+  index: number;
+}
+
+const { label, active = false, index } = Astro.props as Props;
+---
+
+<button
+  class={`tab-button px-4 py-2 font-medium rounded-md transition cursor-pointer
+    ${
+      active
+        ? "active border border-gray-800 text-gray-900"
+        : "inactive border border-transparent text-gray-700 hover:border-gray-300"
+    }`}
+>
+  {label}
+</button>
