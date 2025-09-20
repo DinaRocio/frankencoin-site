@@ -1,7 +1,56 @@
 ---
-import Base from '../layouts/Base.astro';
+import Section from "../components/Layout/Section.astro";
+import SectionHeader from "../components/Layout/SectionHeader.astro";
+import Base from "../layouts/Base.astro";
+import whatIsFrankencoin from "../content/what-is-frankencoin.json";
+import Button from "../components/Button/Button.astro";
+import FlexStack from "../components/Layout/FlexStack.astro";
 ---
 
 <Base>
-<h1>what is frankencoin</h1>
+  <Section
+    variant="accent"
+    width="content"
+    align="center"
+    pad="lg"
+    id="ecosystem-header"
+  >
+    <FlexStack direction="col" gap="40px" align="center">
+      <img
+        src={whatIsFrankencoin.header.image}
+        alt={whatIsFrankencoin.header.imageAlt}
+        width="128"
+        height="128"
+        loading="lazy"
+      />
+      <SectionHeader
+        title={whatIsFrankencoin.header.title}
+        subtitle={whatIsFrankencoin.header.subtitle}
+        maxWidth="6xl"
+        size="display"
+        align="center"
+      />
+      <Button
+        variant="secondary"
+        href={whatIsFrankencoin.header.cta.href}
+        rounded="sm">{whatIsFrankencoin.header.cta.label}</Button
+      >
+    </FlexStack>
+  </Section>
+  <Section>
+    <FlexStack direction="col" gap="40px" align="center">
+      {
+        whatIsFrankencoin.introduction.map((feature) => (
+          <div class="flex justify-between gap-5">
+            <div class="w-1/2">
+              <h1 class="ty-title-1">{feature.title}</h1>
+            </div>
+            <div class="w-1/2">
+              <p class="ty-body-1">{feature.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </FlexStack>
+  </Section>
 </Base>

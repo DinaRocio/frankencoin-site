@@ -1,10 +1,13 @@
 ---
 /* src/components/layout/SectionHeader.astro
-   Props:
+  SectionHeader Component
+  
+  Props:
      - title: string
      - subtitle?: string
-     - size?: "display" | "title1" | "title2" | "title3" (default "title1")
+     - size?: "display" | "title1" | "title2" | "title3" | "title4" (default "title1")
      - align?: "left" | "center" (default "left")
+     - maxWidth?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" (default "3xl")
 */
 
 interface Props {
@@ -12,6 +15,18 @@ interface Props {
   subtitle?: string;
   size?: "display" | "title1" | "title2" | "title3" | "title4";
   align?: "left" | "center";
+  maxWidth?:
+    | "none"
+    | "sm"
+    | "md"
+    | "lg"
+    | "xl"
+    | "2xl"
+    | "3xl"
+    | "4xl"
+    | "5xl"
+    | "6xl"
+    | "7xl";
 }
 
 const {
@@ -19,25 +34,31 @@ const {
   subtitle,
   size = "title1",
   align = "left",
+  maxWidth = "3xl",
 } = Astro.props;
 
 const titleSizes = {
   display: "ty-display text-center",
   title1: "ty-title-1",
-  title2: "ty-title-2", 
+  title2: "ty-title-2",
   title3: "ty-title-3",
   title4: "ty-title-4",
 }[size];
 
 const alignCls = align === "center" ? "mx-auto" : "";
+
+const maxWidthCls = maxWidth === "none" ? "" : `max-w-${maxWidth}`;
 ---
-<header class={`space-y-[var(--spacing-s)] max-w-3xl ${alignCls}`}>
+
+<header class={`space-y-[var(--spacing-s)] ${maxWidthCls} ${alignCls}`}>
   <h2 class={` text-[color:var(--color-brand-deep-blue)] ${titleSizes}`}>
     {title}
   </h2>
-  {subtitle && (
-    <p class="ty-body-2 text-center text-[color:var(--color-neutral-650)]">
-      {subtitle}
-    </p>
-  )}
+  {
+    subtitle && (
+      <p class="ty-body-2 text-center text-[color:var(--color-neutral-650)]">
+        {subtitle}
+      </p>
+    )
+  }
 </header>
