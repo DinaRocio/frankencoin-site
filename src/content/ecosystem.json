@@ -34,16 +34,6 @@
       "linkLabel": "mtpelerin.com"
     },
     {
-      "href": "https://uniswap.org/",
-      "name": "Uniswap",
-      "image": "images/Uniswap_Logo_and_Wordmark-1-Compressify.io.webp",
-      "imageAlt": "Uniswap Logo",
-      "category": "DEX",
-      "badge": "DEX",
-      "description": "The Uniswap Protocol is an open-source protocol for providing liquidity and trading ERC20 tokens on Ethereum. It eliminates trusted intermediaries and unnecessary forms of rent extraction, allowing for safe, accessible, and efficient exchange activity. The protocol is non-upgradable and designed to be censorship resistant.",
-      "linkLabel": "uniswap.org"
-    },
-    {
       "href": "https://dfx.swiss/",
       "name": "DFX",
       "image": "images/Vectors-Wrapper_3.svg",
@@ -91,6 +81,16 @@
       "category": "Wallet",
       "description": "Zippy is a user-friendly crypto wallet that emphasizes security and ease of use. It features social recovery, allowing you to restore your wallet using trusted contacts. You can send and request crypto through your phone contacts without needing public keys. The wallet also supports buying and selling crypto with credit cards or IBAN payments and converting it back to fiat.",
       "linkLabel": "zippy.swiss"
+    },
+    {
+      "href": "https://uniswap.org/",
+      "name": "Uniswap",
+      "image": "images/Uniswap_Logo_and_Wordmark-1-Compressify.io.webp",
+      "imageAlt": "Uniswap Logo",
+      "category": "DEX",
+      "badge": "DEX",
+      "description": "The Uniswap Protocol is an open-source protocol for providing liquidity and trading ERC20 tokens on Ethereum. It eliminates trusted intermediaries and unnecessary forms of rent extraction, allowing for safe, accessible, and efficient exchange activity. The protocol is non-upgradable and designed to be censorship resistant.",
+      "linkLabel": "uniswap.org"
     },
     {
       "href": "https://frankencoin.app/",
