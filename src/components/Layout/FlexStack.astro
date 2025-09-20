@@ -5,6 +5,9 @@ interface Props {
   align?: "start" | "center" | "end" | "stretch" | "baseline";
   justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
   wrap?: "nowrap" | "wrap" | "wrap-reverse";
+  margin?: number | string;
+  marginX?: number | string;
+  marginY?: number | string;
   className?: string;
 }
 
@@ -14,6 +17,9 @@ const {
   align = "stretch",
   justify = "start",
   wrap = "nowrap",
+  margin,
+  marginX,
+  marginY,
   className = "",
 } = Astro.props as Props;
 
@@ -43,11 +49,74 @@ const WRAP_MAP: Record<string, string> = {
 const directionClass = direction === "row" ? "flex-row" : "flex-col";
 const gapClass = typeof gap === "number" ? `gap-${gap}` : "";
 const arbitraryGap = typeof gap === "string" ? gap : "";
+
+// Mapeo de valores semánticos a clases de Tailwind
+const MARGIN_MAP: Record<string, string> = {
+  xs: "1",
+  sm: "2",
+  md: "4",
+  lg: "6",
+  xl: "8",
+  "2xl": "12",
+};
+
+// Generar clases de margen
+const getMarginClasses = () => {
+  let classes = "";
+
+  if (margin) {
+    if (typeof margin === "number") {
+      classes += `m-${margin} `;
+    } else if (typeof margin === "string" && MARGIN_MAP[margin]) {
+      classes += `m-${MARGIN_MAP[margin]} `;
+    }
+  }
+
+  if (marginX) {
+    if (typeof marginX === "number") {
+      classes += `mx-${marginX} `;
+    } else if (typeof marginX === "string" && MARGIN_MAP[marginX]) {
+      classes += `mx-${MARGIN_MAP[marginX]} `;
+    }
+  }
+
+  if (marginY) {
+    if (typeof marginY === "number") {
+      classes += `my-${marginY} `;
+    } else if (typeof marginY === "string" && MARGIN_MAP[marginY]) {
+      classes += `my-${MARGIN_MAP[marginY]} `;
+    }
+  }
+
+  return classes.trim();
+};
+
+const marginClasses = getMarginClasses();
+
+const getMarginStyles = () => {
+  const styles: string[] = [];
+
+  if (margin && typeof margin === "string" && !MARGIN_MAP[margin]) {
+    styles.push(`margin: ${margin}`);
+  }
+
+  if (marginX && typeof marginX === "string" && !MARGIN_MAP[marginX]) {
+    styles.push(`margin-left: ${marginX}`, `margin-right: ${marginX}`);
+  }
+
+  if (marginY && typeof marginY === "string" && !MARGIN_MAP[marginY]) {
+    styles.push(`margin-top: ${marginY}`, `margin-bottom: ${marginY}`);
+  }
+
+  return styles.join("; ");
+};
+
+const marginStyles = getMarginStyles();
 ---
 
 <div
-  class={`flex ${directionClass} ${ALIGN_MAP[align]} ${JUSTIFY_MAP[justify]} ${WRAP_MAP[wrap]} ${gapClass} ${className}`}
-  style={arbitraryGap ? `gap: ${arbitraryGap}` : ""}
+  class={`flex ${directionClass} ${ALIGN_MAP[align]} ${JUSTIFY_MAP[justify]} ${WRAP_MAP[wrap]} ${gapClass} ${marginClasses} ${className}`}
+  style={`${arbitraryGap ? `gap: ${arbitraryGap}` : ""}${marginStyles ? `; ${marginStyles}` : ""}`}
 >
   <slot />
 </div>

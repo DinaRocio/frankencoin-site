@@ -26,9 +26,9 @@ const {
 } = Astro.props as Props;
 
 const pads = {
-  sm: "py-[calc(var(--spacing-l)*2)]",   // ~32px si --spacing-l=16px
-  md: "py-[calc(var(--spacing-l)*4)]",   // ~64px
-  lg: "py-[calc(var(--spacing-l)*6)]",   // ~96px
+  sm: "py-[calc(var(--spacing-l)*2)]", // ~32px si --spacing-l=16px
+  md: "py-[calc(var(--spacing-l)*4)]", // ~64px
+  lg: "py-[calc(var(--spacing-l)*6)]", // ~96px
 }[pad];
 
 const bg =
@@ -38,6 +38,7 @@ const bg =
 
 const textAlign = align === "center" ? "text-center" : "text-left";
 ---
+
 <section id={id} class={`${pads} ${bg}`}>
   <Container width={width}>
     <div class={`${textAlign}`}>

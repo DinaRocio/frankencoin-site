@@ -15,6 +15,7 @@ const color = active
   ? "text-[var(--color-brand-swiss)]"
   : "text-[var(--color-neutral-650)] hover:text-[var(--color-brand-swiss)]";
 ---
+
 <a href={href} class={`${base} ${color}`} {...rest}>
   <slot />
 </a>
