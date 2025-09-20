@@ -41,12 +41,15 @@ import FlexStack from "../components/Layout/FlexStack.astro";
     <FlexStack direction="col" gap="40px" align="center">
       {
         whatIsFrankencoin.introduction.map((feature) => (
-          <div class="flex justify-between gap-5">
-            <div class="w-1/2">
-              <h1 class="ty-title-1">{feature.title}</h1>
+          <div class="flex flex-col md:flex-row justify-between">
+            <div class="w-full md:w-1/2">
+              <h1 class="ty-title-1 ty-black">{feature.title}</h1>
             </div>
-            <div class="w-1/2">
-              <p class="ty-body-1">{feature.description}</p>
+            <div class="w-full md:w-1/2">
+              <p
+                class="ty-body-1"
+                set:html={feature.description.replace(/\n/g, "<br>")}
+              />
             </div>
           </div>
         ))

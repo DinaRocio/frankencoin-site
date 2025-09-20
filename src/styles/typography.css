@@ -6,6 +6,10 @@
     font-size: var(--font-size-display);
     line-height: var(--line-height-display);
     font-weight: 1000;
+    @media (max-width: 768px) {
+      font-size: var(--font-size-display-mobile);
+      line-height: var(--line-height-display-mobile);
+    }
   }
 
   .ty-display-mobile {
@@ -67,6 +71,10 @@
     font-size: var(--font-size-body-1);
     line-height: var(--line-height-body-1);
     font-weight: 400;
+    @media (max-width: 768px) {
+      font-size: var(--font-size-body-1-mobile);
+      line-height: var(--line-height-body-1-mobile);
+    }
   }
 
   .ty-body-1-mobile {
@@ -81,6 +89,10 @@
     font-size: var(--font-size-body-2);
     line-height: var(--line-height-body-2);
     font-weight: 400;
+    @media (max-width: 768px) {
+      font-size: var(--font-size-body-2-mobile);
+      line-height: var(--line-height-body-2-mobile);
+    }
   }
 
   .ty-body-3 {

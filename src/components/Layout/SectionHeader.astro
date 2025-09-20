@@ -51,12 +51,12 @@ const maxWidthCls = maxWidth === "none" ? "" : `max-w-${maxWidth}`;
 ---
 
 <header class={`space-y-[var(--spacing-s)] ${maxWidthCls} ${alignCls}`}>
-  <h2 class={` text-[color:var(--color-brand-deep-blue)] ${titleSizes}`}>
+  <h1 class={` text-[color:var(--color-brand-deep-blue)] ${titleSizes}`}>
     {title}
-  </h2>
+  </h1>
   {
     subtitle && (
-      <p class="ty-body-2 text-center text-[color:var(--color-neutral-650)]">
+      <p class="ty-body-1 text-center text-[color:var(--color-neutral-650)]">
         {subtitle}
       </p>
     )
