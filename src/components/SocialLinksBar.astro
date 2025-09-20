@@ -1,16 +1,15 @@
 ---
-import { site } from "../data/site";
-
 interface Props {
   theme?: "light" | "dark";
 }
 
 const { theme = "light" } = Astro.props as Props;
+import nav from "../content/shared/nav.json";
 ---
 
 <div class="grid grid-cols-5 gap-[var(--spacing-l)] items-center">
   {
-    site.socials.map((s) => (
+    nav.socials.map((s) => (
       <a
         href={s.href}
         target="_blank"
