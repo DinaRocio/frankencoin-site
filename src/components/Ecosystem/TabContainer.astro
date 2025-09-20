@@ -1,0 +1,22 @@
+---
+interface Props {
+  tabs: string[];
+}
+
+const { tabs } = Astro.props as Props;
+---
+
+<div x-data="{ active: 0, activeCategory: 'Show All' }" class="tabs-menu flex flex-wrap gap-2">
+  {tabs.map((label, i) => (
+    <button
+      type="button"
+      data-index={i}
+      data-category={label}
+      @click="active = $el.dataset.index; activeCategory = $el.dataset.category"
+      :class="active == $el.dataset.index ? 'border border-gray-800 text-gray-900 font-semibold' : 'border border-transparent text-gray-600 hover:border-gray-300'"
+      class="px-4 py-2 rounded-md transition cursor-pointer"
+    >
+      {label}
+    </button>
+  ))}
+</div>

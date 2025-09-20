@@ -8,6 +8,7 @@ import ecosystem from "../content/ecosystem.json";
 import Card from "../components/Layout/Card.astro";
 import FlexStack from "../components/Layout/FlexStack.astro";
 import NavLink from "../components/Button/NavLink.astro";
+import TabContainer from "../components/Ecosystem/TabContainer.astro";
 ---
 
 <Base>
@@ -46,37 +47,52 @@ import NavLink from "../components/Button/NavLink.astro";
       </div>
     </Fragment>
   </Section>
-  <Section pad="sm">
-    <div class="tabs-menu w-tab-menu flex flex-wrap gap-2">
-      {
-        [...["Show All"], ...ecosystem.categories].map((category, index) => (
-          <Tab label={category} active={index === 0} index={index} />
-        ))
-      }
-    </div>
-  </Section>
-  <Section
-    variant="plain"
-    width="content"
-    align="left"
-    id="ecosystem-tabs"
-    pad="sm"
-  >
-    <FlexStack direction="col" gap="40px">
-      {
-        ecosystem.tabs.map((tab, index) => (
-          <div class="ecosystem-card" data-category={tab.category}>
-            <CardEcosystem
-              href={tab.href}
-              image={tab.image}
-              imageAlt={tab.imageAlt}
-              badge={tab.badge}
-              description={tab.description}
-              linkLabel={tab.linkLabel}
-            />
-          </div>
-        ))
-      }
-    </FlexStack>
-  </Section>
+
+  <div x-data="{ active: 0, activeCategory: 'Show All' }">
+    <Section pad="sm">
+      <div class="tabs-menu flex flex-wrap gap-2">
+        {["Show All", ...ecosystem.categories].map((label, i) => (
+          <button
+            type="button"
+            data-index={i}
+            data-category={label}
+            @click="active = $el.dataset.index; activeCategory = $el.dataset.category"
+            :class="active == $el.dataset.index ? 'border border-gray-800 text-gray-900 font-semibold' : 'border border-transparent text-gray-600 hover:border-gray-300'"
+            class="px-4 py-2 rounded-md transition cursor-pointer"
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+    </Section>
+    <Section
+      variant="plain"
+      width="content"
+      align="left"
+      id="ecosystem-tabs"
+      pad="sm"
+    >
+      <FlexStack direction="col" gap="40px">
+        {
+          ecosystem.tabs.map((tab, index) => (
+            <div 
+              class="ecosystem-card" 
+              data-category={tab.category}
+              x-show="activeCategory === 'Show All' || activeCategory === $el.getAttribute('data-category')"
+              x-transition
+            >
+              <CardEcosystem
+                href={tab.href}
+                image={tab.image}
+                imageAlt={tab.imageAlt}
+                badge={tab.badge}
+                description={tab.description}
+                linkLabel={tab.linkLabel}
+              />
+            </div>
+          ))
+        }
+      </FlexStack>
+    </Section>
+  </div>
 </Base>
