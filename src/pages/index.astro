@@ -6,6 +6,7 @@ import index from "../content/index.json";
 import Button from "../components/Button/Button.astro";
 import FlexStack from "../components/Layout/FlexStack.astro";
 import SocialLinksBar from "../components/SocialLinksBar.astro";
+import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
 ---
 
 <Base>
@@ -36,6 +37,9 @@ import SocialLinksBar from "../components/SocialLinksBar.astro";
       >
       <SocialLinksBar theme={"dark"} />
     </FlexStack>
+  </Section>
+  <Section pad="sm">
+    <BadgeContainer options={index.stats} />
   </Section>
   <Section variant="accent">
     <div class="flex md:flex-row flex-col gap-40px items-center gap-8">

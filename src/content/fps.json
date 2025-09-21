@@ -12,33 +12,43 @@
   "caps": [
     {
       "label": "FPS Price",
-      "value": "1'162.13"
+      "value": "1'162.13",
+      "unit": "ZCHF",
+      "href": "https://app.frankencoin.com/equity"
     },
     {
       "label": "FPS Supply",
-      "value": "8'887.69"
+      "value": "8'887.69",
+      "unit": "FPS",
+      "href": "https://app.frankencoin.com/equity"
     },
     {
       "label": "FPS Market Cap",
-      "value": "10'328'609.12"
+      "value": "10'328'609.12",
+      "unit": "ZCHF",
+      "href": "https://app.frankencoin.com/equity"
     }
   ],
   "stats_list": [
     {
       "label": "Total Reserve",
-      "value": "8'887.69"
+      "value": "8'887.69",
+      "unit": "ZCHF"
     },
     {
       "label": "Equity Capital",
-      "value": "8'887.69"
+      "value": "8'887.69",
+      "unit": "ZCHF"
     },
     {
       "label": "Minter Reserve",
-      "value": "8'887.69"
+      "value": "8'887.69",
+      "unit": "ZCHF"
     },
     {
       "label": "Net income since 2023",
-      "value": "8'887.69"
+      "value": "8'887.69",
+      "unit": "ZCHF"
     }
   ],
   "introduction": [

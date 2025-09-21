@@ -1,0 +1,43 @@
+---
+import Badge from "./Badge.astro";
+
+export interface Option {
+  value: string;
+  label: string;
+  unit?: string;
+  href?: string;
+}
+
+interface Props {
+  href?: string;
+  variant?: "primary" | "secondary";
+  options?: Option[];
+}
+
+const { variant, options } = Astro.props as Props;
+
+const variants = {
+  primary:
+    "bg-[var(--color-brand-deep-blue)] text-[var(--color-white)] hover:bg-[var(--color-brand-swiss)]",
+  secondary:
+    "bg-[var(--color-neutral-300)] text-[var(--color-brand-deep-blue)]",
+};
+const variantClass = variants[variant ?? "primary"];
+---
+
+<div
+  class={` bg-[var(--color-brand-deep-blue)] flex md:flex-row flex-col justify-between items-center  rounded-xl`}
+>
+  {
+    options?.map((option, index) => (
+      <a
+        id={`badge-${index}-${options.length}`}
+        href={option.href}
+        class={`${variantClass} flex items-center w-full h-full flex-1 ${index === 0 ? "md:rounded-l-xl" : ""} ${index === options.length - 1 ? "md:rounded-r-xl" : "md:border-r md:border-white "} cursor-pointer`}
+        target="_blank"
+      >
+        <Badge {...option} />
+      </a>
+    ))
+  }
+</div>

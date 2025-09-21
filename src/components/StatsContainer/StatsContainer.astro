@@ -1,0 +1,19 @@
+---
+import StatsBox from "./StatsBox.astro";
+
+interface Props {
+  options: { label: string; value: string }[];
+}
+
+const { options } = Astro.props as Props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-4">
+  {
+    options.map((option) => (
+      <div class="flex items-center ">
+        <StatsBox {...option} />
+      </div>
+    ))
+  }
+</div>

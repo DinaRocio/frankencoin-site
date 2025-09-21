@@ -5,6 +5,8 @@ import Base from "../layouts/Base.astro";
 import fps from "../content/fps.json";
 import Button from "../components/Button/Button.astro";
 import FlexStack from "../components/Layout/FlexStack.astro";
+import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
+import StatsContainer from "../components/StatsContainer/StatsContainer.astro";
 ---
 
 <Base>
@@ -33,6 +35,12 @@ import FlexStack from "../components/Layout/FlexStack.astro";
       <Button variant="secondary" href={fps.header.cta.href} rounded="sm"
         >{fps.header.cta.label}</Button
       >
+    </FlexStack>
+  </Section>
+  <Section pad="sm">
+    <FlexStack direction="col" gap="40px" align="center">
+      <BadgeContainer options={fps.caps} />
+      <StatsContainer options={fps.stats_list} />
     </FlexStack>
   </Section>
   <Section>

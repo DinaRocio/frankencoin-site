@@ -1,0 +1,22 @@
+---
+import type { Option } from "./BadgeContainer.astro";
+
+interface Props extends Option {}
+
+const { label, value, unit } = Astro.props as Props;
+---
+
+<div class="flex flex-col items-start py-6 px-8 group">
+  <div class="flex items-center gap-2">
+    <h3 class="ty-regular">{label.toUpperCase()}</h3>
+    <img
+      src="images/arrow_outward.svg"
+      loading="lazy"
+      alt=""
+      class="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-50"
+    />
+  </div>
+  <div class="flex items-start gap-2">
+    <p class="ty-big">{value}</p><p class="ty-big-3">{unit}</p>
+  </div>
+</div>

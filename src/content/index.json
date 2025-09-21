@@ -8,9 +8,24 @@
   },
 
   "stats": [
-    { "label": "Total value locked ", "value": "28'299'272.79" },
-    { "label": "Total supply", "value": "12'452'881.67" },
-    { "label": "fps market cap", "value": "10'328'609.12" }
+    {
+      "label": "Total value locked ",
+      "value": "28'299'272.79",
+      "unit": "ZCHF",
+      "href": "https://defillama.com/protocol/frankencoin#information"
+    },
+    {
+      "label": "Total supply",
+      "value": "12'452'881.67",
+      "unit": "ZCHF",
+      "href": "https://coinmarketcap.com/currencies/frankencoin/"
+    },
+    {
+      "label": "fps market cap",
+      "value": "10'328'609.12",
+      "unit": "ZCHF",
+      "href": "https://app.frankencoin.com/equity"
+    }
   ],
   "core_features": {
     "title": "The Three Core Functions",
