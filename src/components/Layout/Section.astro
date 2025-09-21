@@ -15,6 +15,9 @@ interface Props {
   width?: "narrow" | "content" | "wide" | "full";
   align?: "left" | "center";
   pad?: "sm" | "md" | "lg";
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
 }
 
 const {
@@ -23,6 +26,9 @@ const {
   width = "content",
   align = "left",
   pad = "md",
+  eyebrow,
+  title,
+  subtitle,
 } = Astro.props as Props;
 
 const pads = {
@@ -42,7 +48,11 @@ const textAlign = align === "center" ? "text-center" : "text-left";
 <section id={id} class={`${pads} ${bg}`}>
   <Container width={width}>
     <div class={`${textAlign}`}>
-      <!-- Slot para encabezado (título/subtítulo/eyebrow) -->
+      <div class="flex flex-col gap-2 items-center">
+        {eyebrow && <h3 class="ty-subtitle">{eyebrow.toUpperCase()}</h3>}
+        {title && <h1 class="ty-large-title">{title}</h1>}
+        {subtitle && <h2 class="ty-body-1 ">{subtitle}</h2>}
+      </div>
       <slot name="header" />
       <!-- Contenido libre -->
       <slot />

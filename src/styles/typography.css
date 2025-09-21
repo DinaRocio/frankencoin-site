@@ -102,6 +102,12 @@
     font-weight: 400;
   }
   /* Big Text */
+  .ty-large-title {
+    font-family: var(--font-sans);
+    font-size: var(--font-size--large-title);
+    font-weight: 1000;
+  }
+
   .ty-big {
     font-family: var(--font-sans);
     font-size: var(--font-size--title-1-desktop);

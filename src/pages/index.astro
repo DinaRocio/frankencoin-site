@@ -7,6 +7,8 @@ import Button from "../components/Button/Button.astro";
 import FlexStack from "../components/Layout/FlexStack.astro";
 import SocialLinksBar from "../components/SocialLinksBar.astro";
 import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
+import CardEcosystem from "../components/Ecosystem/CardEcosystem.astro";
+import Surface from "../components/Surface/Surface.astro";
 ---
 
 <Base>
@@ -40,6 +42,51 @@ import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
   </Section>
   <Section pad="sm">
     <BadgeContainer options={index.stats} />
+  </Section>
+  <Section
+    eyebrow={index.core_features.title}
+    title={index.core_features.title}
+  >
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      {index.core_features.features.map((feature) => <Surface {...feature} />)}
+    </div>
+  </Section>
+
+  <Section title={index.tokens.title} subtitle={index.tokens.subtitle}>
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      tokens
+    </div>
+  </Section>
+  <Section title={index.fps.title} subtitle={index.fps.subtitle}>
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      fps
+    </div>
+  </Section>
+  <Section title={index.system.title} subtitle={index.system.subtitle}>
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      system
+    </div>
+  </Section>
+  <Section title={index.ecosystem.title} subtitle={index.ecosystem.description}>
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      ecosystem
+    </div>
+  </Section>
+  <Section
+    title={index.foundation.title}
+    subtitle={index.foundation.description}
+  >
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      foundation
+    </div>
+  </Section>
+  <Section
+    title={index.classification.title}
+    subtitle={index.classification.summary}
+  >
+    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+      classification
+    </div>
   </Section>
   <Section variant="accent">
     <div class="flex md:flex-row flex-col gap-40px items-center gap-8">
