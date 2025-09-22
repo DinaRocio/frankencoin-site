@@ -63,6 +63,14 @@
   "tokens": {
     "title": "The Frankencoin Token",
     "subtitle": "The Frankencoin (ZCHF) Swiss franc stablecoin is an ERC-20 token on Ethereum mainnet and fully available cross-chain.",
+    "header": {
+      "label": "Chain",
+      "title": "Token Contract"
+    },
+    "actions": {
+      "copyTextTooltip": "Copy address",
+      "copiedLabel": "Copied!"
+    },
     "chains": [
       {
         "name": "Ethereum",
