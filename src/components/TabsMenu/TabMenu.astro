@@ -1,0 +1,58 @@
+---
+interface Tab {
+  title: string;
+  image: string;
+  description: Array<{ step: string; content: string }>;
+}
+
+interface Props {
+  tabs: Tab[];
+}
+
+const { tabs } = Astro.props;
+---
+
+<div x-data="{ tab: 0 }" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Tabs -->
+  <div class="flex flex-col space-y-2">
+    {
+      tabs.map((t, i) => (
+        <button
+          x-on:click={`tab = ${i}`}
+          x-bind:class="tab === {i} ? 'bg-white border border-gray-300 rounded-lg px-4 py-2 text-left font-semibold shadow-sm' : 'px-4 py-2 text-left text-gray-700 hover:text-black'"
+        >
+          {t.title}
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Imagen -->
+  <div
+    class=" flex md:flex-col flex-row relative  rounded-lg  items-center justify-center p-4"
+  >
+    {
+      tabs.map((t, i) => (
+        <img
+          src={t.image}
+          alt={t.title}
+          class="w-full"
+          x-show={`tab === ${i}`}
+        />
+      ))
+    }
+    <div class="col-span-1 md:col-span-2 mt-4 text-sm text-gray-800 space-y-2">
+      {
+        tabs.map((t, i) => (
+          <div x-show={`tab === ${i}`}>
+            {t.description.map((s, j) => (
+              <p class="ty-body-2 ty-black">{s.step}</p>
+              <p class="ty-body-2 ">{s.content}</p>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+</div>

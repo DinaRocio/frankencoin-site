@@ -214,24 +214,81 @@
     "steps": [
       {
         "title": "Mint",
-        "description": "Deposit collateral to mint Frankencoins, which must be returned to get collateral back."
-      },
-      {
-        "title": "Fees",
-        "description": "A fee is paid to the equity reserve pool when minting."
+        "image": "images/Grafik_Mint.svg",
+        "description": [
+          {
+            "step": "1. Mint",
+            "content": "Anyone can deposit a suitable collateral and mint Frankencoins. These Frankencoins have to be returned before you can get your collateral back."
+          },
+          {
+            "step": "2. Fees.",
+            "content": "Anyone can deposit a suitable collateral and mint Frankencoins. These Frankencoins have to be returned before you can get your collateral back."
+          }
+        ]
       },
       {
         "title": "Sell",
-        "description": "Exchange Frankencoins on supported platforms."
+        "image": "images/Grafik_Sell.svg",
+        "description": [
+          {
+            "step": "3. Sell.",
+            "content": "The minter sells the Frankencoins for 1 CHF each in the market."
+          }
+        ]
       },
       {
         "title": "Spend",
-        "description": "Use ZCHF to pay merchants, bills, or salaries."
+        "image": "images/Grafik_Spend.svg",
+        "description": [
+          {
+            "step": "4. Buy.",
+            "content": "Someone else buys some Frankencoins from Uniswap or other market places."
+          },
+          {
+            "step": "5. Pay.",
+            "content": "Frankencoins can be used to make Swiss franc payments in DeFi or elsewhere."
+          },
+          {
+            "step": "6. Sell.",
+            "content": "Recipients can sell their Frankencoins again on the market."
+          }
+        ]
       },
-      { "title": "Save", "description": "Hold ZCHF for stability." },
+      {
+        "title": "Save",
+        "image": "images/Grafik_Save.svg",
+        "description": [
+          {
+            "step": "4. Buy.",
+            "content": "Someone else buys some Frankencoins from Uniswap or other market places."
+          },
+          {
+            "step": "5. Pay.",
+            "content": "Frankencoins can be used to make Swiss franc payments in DeFi or elsewhere."
+          },
+          {
+            "step": "6. Sell.",
+            "content": "Recipients can sell their Frankencoins again on the market."
+          }
+        ]
+      },
       {
         "title": "Invest",
-        "description": "Acquire FPS to participate in the system."
+        "image": "images/Grafik_Invest.svg",
+        "description": [
+          {
+            "step": "4. Buy.",
+            "content": "Someone else buys some Frankencoins from Uniswap or other market places."
+          },
+          {
+            "step": "5. Pay.",
+            "content": "Frankencoins can be used to make Swiss franc payments in DeFi or elsewhere."
+          },
+          {
+            "step": "6. Sell.",
+            "content": "Recipients can sell their Frankencoins again on the market."
+          }
+        ]
       }
     ]
   },

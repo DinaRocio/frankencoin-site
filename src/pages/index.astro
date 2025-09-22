@@ -9,6 +9,7 @@ import SocialLinksBar from "../components/SocialLinksBar.astro";
 import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
 import FeaturesContainer from "../components/FeaturesContainer/FeaturesContainer.astro";
 import ChainContainer from "../components/ChainContainer/ChainContainer.astro";
+import TabMenu from "../components/TabsMenu/TabMenu.astro";
 ---
 
 <Base>
@@ -69,55 +70,58 @@ import ChainContainer from "../components/ChainContainer/ChainContainer.astro";
     subtitle={index.system.subtitle}
   >
     <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      system
+      <TabMenu tabs={index.system.steps} />
     </div>
-  </Section>
-  <Section title={index.ecosystem.title} subtitle={index.ecosystem.description}>
-    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      ecosystem
-    </div>
-  </Section>
-  <Section
-    title={index.foundation.title}
-    subtitle={index.foundation.description}
-  >
-    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      foundation
-    </div>
-  </Section>
-  <Section
-    title={index.classification.title}
-    subtitle={index.classification.summary}
-  >
-    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      classification
-    </div>
-  </Section>
-  <Section variant="accent">
-    <div class="flex md:flex-row flex-col gap-40px items-center gap-8">
-      <div class="w-full md:w-1/2">
-        <h3 class="ty-title-1 ty-black">{index.brand_assets.title}</h3>
+    <Section
+      title={index.ecosystem.title}
+      subtitle={index.ecosystem.description}
+    >
+      <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+        ecosystem
       </div>
-      <div class="flex md:flex-row flex-col w-full gap-6">
-        {
-          index.brand_assets.assets.map((asset) => (
-            <div class="w-full md:w-1/2 flex flex-col gap-6">
-              <h4 class="ty-body-1">{asset.description}</h4>
-              <div class="flex items-center gap-2">
-                <span class="text-[var(--color-brand-swiss)] hover:underline font-bold">
-                  {asset.cta.label}
-                </span>
-                <img
-                  src="images/arrow_outward_2.svg"
-                  loading="lazy"
-                  alt=""
-                  class="w-4 h-4"
-                />
+    </Section>
+    <Section
+      title={index.foundation.title}
+      subtitle={index.foundation.description}
+    >
+      <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+        foundation
+      </div>
+    </Section>
+    <Section
+      title={index.classification.title}
+      subtitle={index.classification.summary}
+    >
+      <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
+        classification
+      </div>
+    </Section>
+    <Section variant="accent">
+      <div class="flex md:flex-row flex-col gap-40px items-center gap-8">
+        <div class="w-full md:w-1/2">
+          <h3 class="ty-title-1 ty-black">{index.brand_assets.title}</h3>
+        </div>
+        <div class="flex md:flex-row flex-col w-full gap-6">
+          {
+            index.brand_assets.assets.map((asset) => (
+              <div class="w-full md:w-1/2 flex flex-col gap-6">
+                <h4 class="ty-body-1">{asset.description}</h4>
+                <div class="flex items-center gap-2">
+                  <span class="text-[var(--color-brand-swiss)] hover:underline font-bold">
+                    {asset.cta.label}
+                  </span>
+                  <img
+                    src="images/arrow_outward_2.svg"
+                    loading="lazy"
+                    alt=""
+                    class="w-4 h-4"
+                  />
+                </div>
               </div>
-            </div>
-          ))
-        }
+            ))
+          }
+        </div>
       </div>
-    </div>
+    </Section>
   </Section>
 </Base>
