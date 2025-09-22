@@ -1,0 +1,31 @@
+---
+interface Props {
+  faqs: any[];
+}
+
+const { faqs } = Astro.props;
+---
+  
+    <div class="divide-y divide-gray-200 border border-gray-200 rounded-lg p-8">
+      {faqs.map((faq, index) => (
+        <div x-data="{ open: false }" class="py-4">
+          <!-- Header -->
+          <button
+            class="w-full flex justify-between items-center text-left font-medium text-gray-900 hover:text-black focus:outline-none"
+            x-on:click="open = !open"
+          >
+            <h4 class="ty-body-1 ty-black">{faq.question}</h4>
+            <span class="text-2xl leading-none" x-text="open ? '−' : '+'"></span>
+          </button>
+  
+          <!-- Content -->
+          <div
+            class="mt-2 text-gray-700 text-sm leading-relaxed"
+            x-show="open"
+            x-transition
+          >
+            <p set:html={faq.answer} class="ty-body-1 " />
+          </div>
+        </div>
+      ))}
+    </div>

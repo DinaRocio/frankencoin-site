@@ -10,6 +10,11 @@ import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
 import FeaturesContainer from "../components/FeaturesContainer/FeaturesContainer.astro";
 import ChainContainer from "../components/ChainContainer/ChainContainer.astro";
 import TabMenu from "../components/TabsMenu/TabMenu.astro";
+import EcosystemContainer from "../components/EcosystemContainer/EcosystemContainer.astro";
+import EcosystemPartners from "../components/EcosystemContainer/EcosystemPartners.astro";
+import FoundationContainer from "../components/FoundationContainer/FoundationContainer.astro";
+import AuditsContainer from "../components/AuditsContainer/AuditsContainer.astro";
+import FAQContainer from "../components/FAQContainer/FAQContainer.astro";
 ---
 
 <Base>
@@ -73,28 +78,59 @@ import TabMenu from "../components/TabsMenu/TabMenu.astro";
       <TabMenu tabs={index.system.steps} />
     </div>
     <Section
+      layout="split"
+      eyebrow={index.ecosystem.eyebrow}
       title={index.ecosystem.title}
       subtitle={index.ecosystem.description}
+      contentPosition="right"
     >
-      <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-        ecosystem
-      </div>
+      <EcosystemContainer />
+      <EcosystemPartners slot="aside" />
     </Section>
+
     <Section
+      layout="split"
       title={index.foundation.title}
       subtitle={index.foundation.description}
+      contentPosition="left"
     >
-      <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-        foundation
+      <div
+        class="flex md:flex-row flex-col gap-40px items-stretch gap-8"
+        slot="aside"
+      >
+        <img src={index.foundation.image} alt={index.foundation.imageAlt} />
       </div>
+      <FoundationContainer />
     </Section>
     <Section
+      layout="split"
+      eyebrow={index.audits.eyebrow}
+      title={index.audits.title}
+      subtitle={index.audits.subtitle}
+    >
+      <AuditsContainer slot="aside" />
+    </Section>
+    <Section
+      layout="split"
+      contentPosition="left"
       title={index.classification.title}
       subtitle={index.classification.summary}
     >
-      <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-        classification
+      <div
+        class="flex md:flex-row flex-col gap-40px items-stretch gap-8"
+        slot="aside"
+      >
+        <img
+          src={index.classification.image}
+          alt={index.classification.imageAlt}
+          loading="lazy"
+          width="175"
+          height="175"
+        />
       </div>
+    </Section>
+    <Section title={index.faq.title}>
+      <FAQContainer faqs={index.faq.questions} />
     </Section>
     <Section variant="accent">
       <div class="flex md:flex-row flex-col gap-40px items-center gap-8">

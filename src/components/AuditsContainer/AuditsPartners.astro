@@ -1,0 +1,19 @@
+---
+import index from "../../content/index.json";
+import LogoBlock from "../Layout/LogoBlock.astro";
+---
+
+<LogoBlock>
+  <div class="grid grid-cols-2 gap-5">
+    {
+      index.audits.partners.map((partner) => (
+        <img
+          src={partner.image}
+          alt={partner.altText}
+          height="40"
+          loading="lazy"
+        />
+      ))
+    }
+  </div>
+</LogoBlock>; ---

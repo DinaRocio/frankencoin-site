@@ -1,0 +1,25 @@
+---
+import index from "../../content/index.json";
+---
+
+<div class="space-y-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {
+      index.ecosystem.actions?.map((action) => (
+        <a
+          href={action.href}
+          target="_blank"
+          class="p-4 flex items-center justify-center text-center"
+        >
+          <span class="font-medium">{action.label}</span>
+          <img
+            src="images/arrow_outward_2.svg"
+            loading="lazy"
+            alt=""
+            class="w-4 h-4"
+          />
+        </a>
+      ))
+    }
+  </div>
+</div>

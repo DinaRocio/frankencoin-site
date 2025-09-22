@@ -1,0 +1,22 @@
+---
+interface Props {
+  href?: string;
+  target?: string;
+  class?: string;
+}
+
+const { href, target = "_blank", class: className = "" } = Astro.props;
+const Component = href ? "a" : "div";
+---
+
+<div
+  class={`
+    flex flex-col justify-center items-center
+    w-full max-w-[800px] h-full max-h-[354px]
+    gap-2 no-underline
+    bg-[url('../images/Vector-Compressify.io-1.webp')] bg-center bg-cover bg-no-repeat
+    ${className}
+  `}
+>
+  <slot />
+</div>

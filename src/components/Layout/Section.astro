@@ -6,6 +6,12 @@
      - width?: "narrow" | "content" | "wide" | "full" (default "content")
      - align?: "left" | "center" (default "left")
      - pad?: "sm" | "md" | "lg" (default "md")
+     - layout?: "default" | "split" | "feature" (default "default")
+     - contentPosition?: "left" | "right" (default "right")
+   
+   Slots:
+     - default: Main content
+     - aside: Secondary content (for split and feature layouts)
 */
 import Container from "./Container.astro";
 
@@ -15,9 +21,11 @@ interface Props {
   width?: "narrow" | "content" | "wide" | "full";
   align?: "left" | "center";
   pad?: "sm" | "md" | "lg";
+  layout?: "default" | "split" | "feature";
   eyebrow?: string;
   title?: string;
   subtitle?: string;
+  contentPosition?: "left" | "right";
 }
 
 const {
@@ -26,9 +34,11 @@ const {
   width = "content",
   align = "left",
   pad = "md",
+  layout = "default",
   eyebrow,
   title,
   subtitle,
+  contentPosition = "right",
 } = Astro.props as Props;
 
 const pads = {
@@ -43,17 +53,63 @@ const bg =
     : "bg-[var(--color-white)]";
 
 const textAlign = align === "center" ? "text-center" : "text-left";
+
+// Layout classes
+const isContentLeft = contentPosition === "left";
+const flexOrder = isContentLeft ? "md:flex-row-reverse" : "md:flex-row";
 ---
 
 <section id={id} class={`${pads} ${bg}`}>
   <Container width={width}>
-    <div class={`${textAlign}`}>
-      <div class="flex flex-col gap-2 items-center mb-8">
-        {eyebrow && <h3 class="ty-subtitle">{eyebrow.toUpperCase()}</h3>}
-        {title && <h1 class="ty-large-title">{title}</h1>}
-        {subtitle && <h2 class="ty-body-1 ">{subtitle}</h2>}
+    {layout === "default" && (
+      <div class={`${textAlign}`}>
+        <div class="flex flex-col gap-2 items-center mb-8">
+          {eyebrow && <h3 class="ty-subtitle">{eyebrow.toUpperCase()}</h3>}
+          {title && <h1 class="ty-large-title">{title}</h1>}
+          {subtitle && <h2 class="ty-body-1">{subtitle}</h2>}
+        </div>
+        <slot />
       </div>
-      <slot />
-    </div>
+    )}
+
+    {layout === "split" && (
+      <div class={`flex flex-col ${flexOrder} gap-8 md:gap-12 items-center`}>
+        <!-- Contenido principal -->
+        <div class="flex-1 space-y-6">
+          {eyebrow && <h3 class="ty-subtitle">{eyebrow.toUpperCase()}</h3>}
+          {title && <h1 class="ty-large-title">{title}</h1>}
+          {subtitle && <h2 class="ty-body-1">{subtitle}</h2>}
+          <slot />
+        </div>
+        
+        <div class="flex-1">
+          <slot name="aside" />
+        </div>
+      </div>
+    )}
+
+    {layout === "feature" && (
+      <div class="space-y-8">
+        <!-- Header centrado -->
+        <div class="text-center space-y-4">
+          {eyebrow && <h3 class="ty-subtitle">{eyebrow.toUpperCase()}</h3>}
+          {title && <h1 class="ty-large-title">{title}</h1>}
+          {subtitle && <h2 class="ty-body-1">{subtitle}</h2>}
+        </div>
+        
+        <!-- Contenido con aside -->
+        <div class={`flex flex-col ${flexOrder} gap-8 md:gap-12 items-center`}>
+          <!-- Contenido principal -->
+          <div class="flex-1">
+            <slot />
+          </div>
+          
+          <!-- Contenido secundario -->
+          <div class="flex-1">
+            <slot name="aside" />
+          </div>
+        </div>
+      </div>
+    )}
   </Container>
 </section>
