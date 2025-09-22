@@ -1,0 +1,89 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  contract: string;
+  actions: Array<{
+    label: string;
+    fiatProviders?: Array<{
+      href: string;
+      image: string;
+      name: string;
+    }>;
+    href?: string;
+    image: string;
+  }>;
+}
+
+const { name, image, contract, actions } = Astro.props as Props;
+---
+
+<div
+  class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm w-full max-w-md"
+>
+  <!-- Chain Header -->
+  <div class="flex items-center gap-3">
+    <img src={image} alt={name} class="w-10 h-10 rounded-full" />
+    <div>
+      <p class="ty-xs ty-black text-[var(--color-brand-anthracite)]">Chain</p>
+      <h2 class="text-xl font-semibold text-gray-900">{name}</h2>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="flex items-center gap-2 text-sm text-gray-800 break-all">
+      <p class="ty-body-3 ty-black text-gray-500">Token Contract</p>
+      <img
+        src="images/Vectors-Wrapper.svg"
+        loading="lazy"
+        alt=""
+        class="w-3 h-3"
+      />
+    </div>
+    <div class="flex items-center gap-2 text-sm text-gray-800 break-all">
+      <a
+        href={`https://etherscan.io/address/${contract}`}
+        target="_blank"
+        class="ty-2xs hover:underline text-blue-600"
+      >
+        {contract}
+      </a>
+      <button
+        class="p-1 hover:bg-gray-100 rounded cursor-pointer"
+        onclick={`navigator.clipboard.writeText('${contract}')`}
+        aria-label="Copy address"
+      >
+        <img src="/images/copy-icon-1.svg" alt="Copy" class="w-4 h-4" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Buy with fiat -->
+  {
+    actions.map((action) => (
+      <div class="mt-6">
+        <p class="text-sm ty-secondary ty-extrabold mb-2">{action.label}</p>
+        <div class="flex gap-3">
+          {action.fiatProviders?.map((p) => (
+            <a
+              href={p.href}
+              target="_blank"
+              class="flex-1 rounded-lg border border-gray-200 p-3 flex items-center justify-center hover:border-blue-500"
+            >
+              <img src={p.image} alt={p.name} class="h-6" />
+            </a>
+          ))}
+        </div>
+        {action.href && (
+          <a
+            href={action.href}
+            target="_blank"
+            class="flex-1 rounded-lg border border-gray-200 p-3 flex items-center justify-center hover:border-blue-500"
+          >
+            <img src={action.image} alt={action.label} class="h-6" />
+          </a>
+        )}
+      </div>
+    ))
+  }
+</div>

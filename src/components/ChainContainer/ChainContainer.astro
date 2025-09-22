@@ -1,0 +1,14 @@
+---
+import ChainCard from "../ChainCard/ChainCard.astro";
+import index from "../../content/index.json";
+
+interface Props {
+  tokens: typeof index.tokens.chains;
+}
+
+const { tokens } = Astro.props;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  {tokens.map((token) => <ChainCard {...token} />)}
+</div>

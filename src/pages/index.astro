@@ -7,8 +7,10 @@ import Button from "../components/Button/Button.astro";
 import FlexStack from "../components/Layout/FlexStack.astro";
 import SocialLinksBar from "../components/SocialLinksBar.astro";
 import BadgeContainer from "../components/BadgeContainer/BadgeContainer.astro";
-import CardEcosystem from "../components/Ecosystem/CardEcosystem.astro";
 import Surface from "../components/Surface/Surface.astro";
+import ChainCard from "../components/ChainCard/ChainCard.astro";
+import FeaturesContainer from "../components/FeaturesContainer/FeaturesContainer.astro";
+import ChainContainer from "../components/ChainContainer/ChainContainer.astro";
 ---
 
 <Base>
@@ -40,29 +42,34 @@ import Surface from "../components/Surface/Surface.astro";
       <SocialLinksBar theme={"dark"} />
     </FlexStack>
   </Section>
-  <Section pad="sm">
+  <Section id="stats" pad="sm">
     <BadgeContainer options={index.stats} />
   </Section>
   <Section
+    id="core-features"
     eyebrow={index.core_features.title}
     title={index.core_features.title}
   >
-    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      {index.core_features.features.map((feature) => <Surface {...feature} />)}
-    </div>
+    <FeaturesContainer features={index.core_features.features} />
   </Section>
 
-  <Section title={index.tokens.title} subtitle={index.tokens.subtitle}>
-    <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      tokens
-    </div>
+  <Section
+    id="tokens"
+    title={index.tokens.title}
+    subtitle={index.tokens.subtitle}
+  >
+    <ChainContainer tokens={index.tokens.chains} />
   </Section>
-  <Section title={index.fps.title} subtitle={index.fps.subtitle}>
+  <Section id="fps" title={index.fps.title} subtitle={index.fps.subtitle}>
     <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
       fps
     </div>
   </Section>
-  <Section title={index.system.title} subtitle={index.system.subtitle}>
+  <Section
+    id="system"
+    title={index.system.title}
+    subtitle={index.system.subtitle}
+  >
     <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
       system
     </div>

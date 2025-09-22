@@ -1,0 +1,14 @@
+---
+import Surface from "../Surface/Surface.astro";
+import index from "../../content/index.json";
+interface Props {
+  features: typeof index.core_features.features;
+}
+const { features } = Astro.props;
+---
+
+<div
+  class="flex md:flex-row flex-col justify-center gap-40px items-stretch gap-8"
+>
+  {features.map((feature) => <Surface {...feature} />)}
+</div>
