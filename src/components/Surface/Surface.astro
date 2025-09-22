@@ -52,9 +52,9 @@ const hoverShadowClass = hoverShadows[shadow];
   class={`block rounded-lg ${shadowClass} ${hoverShadowClass} bg-[var(--color-neutral-100)] hover:bg-[var(--color-neutral-200)] transition h-auto`}
 >
   <div
-    class="flex flex-col justify-between gap-[var(--spacing-l)] p-[var(--spacing-xxl)] group max-w-[319px] h-auto"
+    class="flex flex-col justify-between gap-[var(--spacing-l)] p-[var(--spacing-xxl)] group w-full h-auto"
   >
-    <div class="flex flex-col gap-[var(--spacing-l)]">
+    <div class="flex flex-col gap-[var(--spacing-l)] h-auto justify-between">
       <h2 class="ty-big-2">{title}</h2>
       <img
         src={image}

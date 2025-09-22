@@ -40,7 +40,7 @@ import ChainContainer from "../components/ChainContainer/ChainContainer.astro";
       <SocialLinksBar theme={"dark"} />
     </FlexStack>
   </Section>
-  <Section id="stats" pad="sm">
+  <Section id="stats" pad="sm" align="center">
     <BadgeContainer options={index.stats} />
   </Section>
   <Section
@@ -60,7 +60,7 @@ import ChainContainer from "../components/ChainContainer/ChainContainer.astro";
   </Section>
   <Section id="fps" title={index.fps.title} subtitle={index.fps.subtitle}>
     <div class="flex md:flex-row flex-col gap-40px items-stretch gap-8">
-      fps
+      <ChainContainer tokens={[index.fps.chain]} />
     </div>
   </Section>
   <Section
