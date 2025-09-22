@@ -1,4 +1,6 @@
 ---
+import Tooltip from "../Tooltip/Tooltip.astro";
+
 interface Props {
   name: string;
   image: string;
@@ -11,7 +13,7 @@ interface Props {
       name: string;
     }>;
     href?: string;
-    image: string;
+    image?: string;
   }>;
 }
 
@@ -48,13 +50,7 @@ const { name, image, contract, actions } = Astro.props as Props;
       >
         {contract}
       </a>
-      <button
-        class="p-1 hover:bg-gray-100 rounded cursor-pointer"
-        onclick={`navigator.clipboard.writeText('${contract}')`}
-        aria-label="Copy address"
-      >
-        <img src="/images/copy-icon-1.svg" alt="Copy" class="w-4 h-4" />
-      </button>
+      <Tooltip text="Copy Address" toCopy={contract} />
     </div>
   </div>
 
