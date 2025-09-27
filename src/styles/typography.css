@@ -54,7 +54,7 @@
 
   .ty-title-3 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-title-3);
+    font-size: var(--font-size--title-3-desktop);
     font-weight: 400;
   }
 

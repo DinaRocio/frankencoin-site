@@ -57,6 +57,9 @@ const textAlign = align === "center" ? "text-center" : "text-left";
 // Layout classes
 const isContentLeft = contentPosition === "left";
 const flexOrder = isContentLeft ? "md:flex-row-reverse" : "md:flex-row";
+
+const mainBasis = isContentLeft ? "md:basis-4/5" : "md:basis-1/5";
+const asideBasis = isContentLeft ? "md:basis-1/5" : "md:basis-4/5"; 
 ---
 
 <section id={id} class={`${pads} ${bg}`}>
@@ -75,14 +78,14 @@ const flexOrder = isContentLeft ? "md:flex-row-reverse" : "md:flex-row";
     {layout === "split" && (
       <div class={`flex flex-col ${flexOrder} gap-8 md:gap-12 items-center`}>
         <!-- Contenido principal -->
-        <div class="flex-1 space-y-6">
+        <div class={`${mainBasis} space-y-6`}>
           {eyebrow && <h3 class="ty-subtitle">{eyebrow.toUpperCase()}</h3>}
           {title && <h1 class="ty-large-title">{title}</h1>}
           {subtitle && <h2 class="ty-body-1">{subtitle}</h2>}
           <slot />
         </div>
         
-        <div class="flex-1">
+        <div class={`${asideBasis}`}>
           <slot name="aside" />
         </div>
       </div>
@@ -100,12 +103,12 @@ const flexOrder = isContentLeft ? "md:flex-row-reverse" : "md:flex-row";
         <!-- Contenido con aside -->
         <div class={`flex flex-col ${flexOrder} gap-8 md:gap-12 items-center`}>
           <!-- Contenido principal -->
-          <div class="flex-1">
+          <div class={`${mainBasis}`}>
             <slot />
           </div>
           
           <!-- Contenido secundario -->
-          <div class="flex-1">
+          <div class={`${asideBasis}`}>
             <slot name="aside" />
           </div>
         </div>

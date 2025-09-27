@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { tabs } = Astro.props;
+
 ---
 
 <div x-data="{ tab: 0 }" class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -18,10 +19,15 @@ const { tabs } = Astro.props;
     {
       tabs.map((t, i) => (
         <button
-          x-on:click={`tab = ${i}`}
-          x-bind:class="tab === {i} ? 'bg-white border border-gray-300 rounded-lg px-4 py-2 text-left font-semibold shadow-sm' : 'px-4 py-2 text-left text-gray-700 hover:text-black'"
+          class="bg-white rounded-lg px-6 py-4 text-left cursor-pointer hover:border-[var(--color-gray-20)]"
+          x-on:click={`tab=${i}`}
+          x-bind:class={`{
+            'border border-[var(--color-brand-titan-gray)]': tab === ${i},
+            'border border-white hover:border-[var(--color-gray-20)]': tab !== ${i},
+          }`}
         >
-          {t.title}
+          <p class="ty-title-3 ty-black">{t.title}</p>
+          {/* {t.title} */}
         </button>
       ))
     }
@@ -29,24 +35,26 @@ const { tabs } = Astro.props;
 
   <!-- Imagen -->
   <div
-    class=" flex md:flex-col flex-row relative  rounded-lg  items-center justify-center p-4"
+    class=" flex flex-col  relative  rounded-lg  items-center justify-center p-4"
   >
     {
-      tabs.map((t, i) => (
+      tabs.map((t, i) => {
+
+        return (
         <img
           src={t.image}
           alt={t.title}
           class="w-full"
           x-show={`tab === ${i}`}
         />
-      ))
+      )})
     }
     <div class="col-span-1 md:col-span-2 mt-4 text-sm text-gray-800 space-y-2">
       {
         tabs.map((t, i) => (
           <div x-show={`tab === ${i}`}>
             {t.description.map((s, j) => (
-              <p class="ty-body-2 ty-black">{s.step}</p>
+              <p id={i.toString()} class="ty-body-2 ty-black">{s.step}</p>
               <p class="ty-body-2 ">{s.content}</p>
             ))}
           </div>
