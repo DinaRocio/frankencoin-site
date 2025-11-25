@@ -9,13 +9,15 @@ import LogoBlock from "../Layout/LogoBlock.astro";
   >
     {
       index.audits.partners.map((partner) => (
-        <img
-          class="w-[150px] md:w-[200px] hover:scale-120 transition"
-          src={partner.image}
-          alt={partner.altText}
-          height="40"
-          loading="lazy"
-        />
+        <a href={partner.href} target="_blank" class="block">
+          <img
+            class="w-[150px] md:w-[200px] hover:scale-120 transition"
+            src={partner.image}
+            alt={partner.altText}
+            height="40"
+            loading="lazy"
+          />
+        </a>
       ))
     }
   </div>
