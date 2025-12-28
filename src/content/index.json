@@ -260,7 +260,7 @@
           },
           {
             "step": "2. Fees.",
-            "content": "Anyone can deposit a suitable collateral and mint Frankencoins. These Frankencoins have to be returned before you can get your collateral back."
+            "content": "When minting Frankencoins, a fee is paid to the equity reserve pool."
           }
         ]
       },
